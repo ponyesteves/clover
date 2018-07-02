@@ -5,18 +5,13 @@ import "../css/phoenix.css"
 
 import React from "react"
 import ReactDOM from "react-dom"
-import { createStore } from "redux"
 import { Provider } from "react-redux"
 
-import reducers from "./reducers"
+import { store } from './store'
 import { LeadForm } from "./containers/step_one"
 import { StepTwoForm } from "./containers/step_two"
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 const Form = props => (
   <Provider store={store}>

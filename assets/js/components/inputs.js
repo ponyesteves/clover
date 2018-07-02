@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export const InputText = props => (
   <div className="form-group">
@@ -14,4 +14,4 @@ export const InputText = props => (
       {props.helpText}
     </small>
   </div>
-);
+)

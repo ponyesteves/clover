@@ -16,6 +16,7 @@ export const LeadForm = () => (
       id="representante"
       label="Representante"
       placeholder="¿ Con quien hablamos ?"
+      helpText="Indique el nombre del interlocutor"
     />
     <Link to="/step_two" className="btn btn-success">
       Siguiente
