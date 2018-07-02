@@ -1,12 +1,12 @@
-import "phoenix_html";
+import "phoenix_html"
 
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom"
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/phoenix.css";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "../css/phoenix.css"
 
-import { InputText } from "./components/inputs";
+import { InputText } from "./components/inputs"
 
 const Form = props => (
   <form>
@@ -25,9 +25,9 @@ const Form = props => (
       Siguiente
     </button>
   </form>
-);
+)
 
-ReactDOM.render(<Form />, document.getElementById("my-react-app"));
+ReactDOM.render(<Form />, document.getElementById("my-react-app"))
 
 //     <div className="form-check">
 // <input type="checkbox" className="form-check-input" id="exampleCheck1" />
