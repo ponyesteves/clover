@@ -9,32 +9,23 @@ import { createStore } from "redux"
 import { Provider } from "react-redux"
 
 import reducers from "./reducers"
-import { InputText } from "./components/inputs"
+import { LeadForm } from "./containers/step_one"
+import { StepTwoForm } from "./containers/step_two"
 
-const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+const store = createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 const Form = props => (
   <Provider store={store}>
-    <form>
-      <InputText
-        id="colegio"
-        label="Colegio"
-        placeholder="Nombre del Colegio"
-      />
-      <InputText
-        id="cantidad"
-        label="Cantidad"
-        placeholder="Cantidad de Alumnos"
-      />
-      <InputText
-        id="representante"
-        label="Representante"
-        placeholder="¿ Con quien hablamos ?"
-      />
-      <button type="submit" className="btn btn-success">
-        Siguiente
-      </button>
-    </form>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={LeadForm} />
+        <Route path="/step_two" component={StepTwoForm} />
+      </Switch>
+    </Router>
   </Provider>
 )
 
