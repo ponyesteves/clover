@@ -9,6 +9,10 @@ export const InputText = props => (
       id={props.id}
       aria-describedby="emailHelp"
       placeholder={props.placeholder}
+      required={props.required}
+      pattern={props.pattern}
+      min={props.min}
+      max={props.max}
     />
     <small id="emailHelp" className="form-text text-muted">
       {props.helpText}
