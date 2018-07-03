@@ -25,6 +25,7 @@ defmodule CloverWeb.Router do
     resources("/users", UserController, only: [:new, :create, :edit, :update])
     resources("/sessions", SessionController, only: [:new, :create])
     delete("/sessions/drop", SessionController, :drop)
+    get("/oauth2callback", ZohoController, :index)
   end
 
   scope "/", CloverWeb do
