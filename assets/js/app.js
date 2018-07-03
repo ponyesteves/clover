@@ -7,14 +7,14 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 
-import { store } from './store'
+import { store, myHistory } from './store'
 import { LeadForm } from "./containers/step_one"
 import { StepTwoForm } from "./containers/step_two"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { Router, Switch, Route } from "react-router-dom"
 
 const Form = props => (
   <Provider store={store}>
-    <Router>
+    <Router history={myHistory}>
       <Switch>
         <Route exact path="/" component={LeadForm} />
         <Route path="/step_two" component={StepTwoForm} />

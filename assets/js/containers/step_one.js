@@ -1,8 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { InputText } from "../components/inputs"
+import { push } from 'react-router-redux';
+import { store } from "../store";
 const handleSubmit = e => {
   e.preventDefault()
+  store.dispatch(push("/step_two"))
 }
 export const LeadForm = () => (
   <form onSubmit={handleSubmit}>
@@ -18,8 +21,8 @@ export const LeadForm = () => (
       placeholder="¿ Con quien hablamos ?"
       helpText="Indique el nombre del interlocutor"
     />
-    <Link to="/step_two" className="btn btn-success">
+    <button type="submit" className="btn btn-success">
       Siguiente
-    </Link>
+    </button>
   </form>
 )
