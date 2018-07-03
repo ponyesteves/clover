@@ -10,7 +10,6 @@ import { Provider } from "react-redux"
 import { store } from './store'
 import { LeadForm } from "./containers/step_one"
 import { StepTwoForm } from "./containers/step_two"
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 const Form = props => (
