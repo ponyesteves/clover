@@ -1,14 +1,15 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { InputText } from "../components/inputs"
-import { push } from 'react-router-redux';
-import { store } from "../store";
-const handleSubmit = e => {
+import { connect } from "react-redux"
+import {  createLead } from "../actions/lead"
+
+const handleSubmit = (e, fx) => {
   e.preventDefault()
-  store.dispatch(push("/step_two"))
+  fx()
 }
-export const LeadForm = () => (
-  <form onSubmit={handleSubmit}>
+
+const PreLeadForm = (props) => (
+  <form onSubmit={(e) => handleSubmit(e, props.createLead)}>
     <InputText id="colegio" label="Colegio" placeholder="Nombre del Colegio" />
     <InputText
       id="cantidad"
@@ -26,3 +27,9 @@ export const LeadForm = () => (
     </button>
   </form>
 )
+
+const mapDispatchToProps = {
+  createLead
+}
+
+export const LeadForm = connect(null, mapDispatchToProps)(PreLeadForm)
