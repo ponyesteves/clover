@@ -25,6 +25,7 @@ defmodule CloverWeb.Router do
     resources("/users", UserController, only: [:new, :create, :edit, :update])
     resources("/sessions", SessionController, only: [:new, :create])
     delete("/sessions/drop", SessionController, :drop)
+    # If refresh_token is no longer valid got to /auth to get a new one
     get("/auth", ZohoController, :oauth)
     get("/oauth2callback", ZohoController, :index)
   end
