@@ -37,7 +37,8 @@ defmodule CloverWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CloverWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CloverWeb do
+    pipe_through :api
+    get("lead", ZohoController, :create_lead)
+  end
 end
