@@ -44,7 +44,8 @@ defmodule Clover.Mixfile do
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:httpoison, "~> 1.2"}
+      {:httpoison, "~> 1.2"},
+      {:cors_plug, "~> 1.5"},
     ]
   end
 
