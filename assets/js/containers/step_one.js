@@ -1,25 +1,29 @@
 import React from "react"
-import { InputText } from "../components/inputs"
+import { GenericInput } from "../components/input"
 import { connect } from "react-redux"
 import { createLead } from "../actions/lead"
+import { cel_pattern } from "../patterns"
 
 const handleSubmit = (e, createLead) => {
   e.preventDefault()
   createLead(extractValues(["colegio", "cantidad", "representante"]))
 }
-const extractValues = (keys) => {
-  return keys.reduce((prev, curr) => ({...prev, [curr]: document.getElementById(curr).value}), {})
+const extractValues = keys => {
+  return keys.reduce(
+    (prev, curr) => ({ ...prev, [curr]: document.getElementById(curr).value }),
+    {}
+  )
 }
 
 const PreLeadForm = props => (
   <form id="leadForm" onSubmit={e => handleSubmit(e, props.createLead)}>
-    <InputText
+    <GenericInput
       id="colegio"
       label="Colegio"
       placeholder="Nombre del Colegio"
       required={true}
     />
-    <InputText
+    <GenericInput
       id="cantidad"
       label="Cantidad"
       placeholder="Cantidad de Alumnos"
@@ -29,12 +33,20 @@ const PreLeadForm = props => (
       max="150"
       helpText="A partir de 15 unidades"
     />
-    <InputText
+    <GenericInput
       id="representante"
       label="Representante"
       placeholder="¿ Con quien hablamos ?"
       helpText="Indique su nombre o apodo"
       required={true}
+    />
+    <GenericInput
+      id="celular_representante"
+      label="Celular"
+      placeholder="¿ Como es tu número ?"
+      helpText="Indique su número de celular con código de area (11) 2222-1111"
+      required={true}
+      pattern={cel_pattern}
     />
     <button type="submit" className="btn btn-success">
       Siguiente

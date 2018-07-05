@@ -1,6 +1,6 @@
 import React from "react"
 
-export const InputText = props => (
+export const GenericInput = props => (
   <div className="form-group">
     <label htmlFor={props.id}>{props.label}</label>
     <input
