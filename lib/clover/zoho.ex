@@ -62,7 +62,7 @@ defmodule Clover.Zoho do
   end
 
   def request_oauth_url do
-    "https://accounts.zoho.com/oauth/v2/auth?&scope=ZohoCRM.modules.leads.ALL&client_id=#{
+    "https://accounts.zoho.com/oauth/v2/auth?&scope=ZohoCRM.modules.ALL&client_id=#{
       @client_id
     }&response_type=code&access_type=offline&redirect_uri=#{@redirect_uri}&prompt=consent"
   end
