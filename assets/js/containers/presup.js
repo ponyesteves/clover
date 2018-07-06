@@ -5,7 +5,7 @@ import { StepThree } from './step_three'
 
 import '../../css/step_container.css'
 import { connect } from 'react-redux'
-import { nextStep } from '../actions/steps'
+import { nextStep, prevStep } from '../actions/steps'
 
 const PrePresup = props => {
   console.log(props)
@@ -39,13 +39,22 @@ const PrePresup = props => {
       </div>
       <div className="row">
         <div className="col-sm-12">
-          <button
-            type="submit"
-            className="btn btn-success float-right"
-            onClick={props.handleNextStep}
-          >
-            Siguiente
-          </button>
+          <div className="float-right">
+            <button
+              type="submit"
+              className="btn btn-warning"
+              onClick={props.handlePrevStep}
+            >
+              Anterior
+            </button>
+            <button
+              type="submit"
+              className="btn btn-success"
+              onClick={props.handleNextStep}
+            >
+              Siguiente
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -53,7 +62,8 @@ const PrePresup = props => {
 }
 
 const mapDispatchToProps = {
-  handleNextStep: nextStep
+  handleNextStep: nextStep,
+  handlePrevStep: prevStep
 }
 export const Presup = connect(
   null,

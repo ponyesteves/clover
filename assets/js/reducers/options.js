@@ -2,7 +2,7 @@ import { OPTIONS } from '../constants'
 const init_options = {
   buzo_campera: 'buzo',
   chomba_remera_nada: 'nada',
-  colores: 1,
+  colores: 'uno',
   capucha: 'lisa'
 }
 

@@ -8,5 +8,6 @@ export const OPTIONS = {
 }
 
 export const STEP = {
-  NEXT: 'NEXT'
+  NEXT: 'NEXT',
+  PREV: 'PREV'
 }

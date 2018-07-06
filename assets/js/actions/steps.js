@@ -1,11 +1,16 @@
 import { STEP } from '../constants'
 import { push } from 'react-router-redux'
 
-export const nextStep = () => (dispatch, state) => {
-
+export const nextStep = () => (dispatch, getState) => {
   dispatch({
     type: STEP.NEXT
   })
-  alert(state().step)
-  dispatch(push(state().step))
+  dispatch(push(getState().step))
+}
+
+export const prevStep = () => (dispatch, getState) => {
+  dispatch({
+    type: STEP.PREV
+  })
+  dispatch(push(getState().step))
 }
