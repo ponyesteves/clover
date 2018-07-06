@@ -1,8 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { StepTwoForm } from './step_two'
+import { StepThree } from './step_three'
+
 import '../../css/step_container.css'
-export const Presup = props => {
+import { connect } from 'react-redux'
+import { nextStep } from '../actions/steps'
+
+const PrePresup = props => {
   console.log(props)
   return (
     <div className="container">
@@ -13,10 +18,14 @@ export const Presup = props => {
               path={props.match.url + '/step_two'}
               component={StepTwoForm}
             />
+            <Route
+              path={props.match.url + '/step_three'}
+              component={StepThree}
+            />
           </div>
         </div>
         <div className="col-sm-4 step_container">
-          <div style={{height: '100%'}}>
+          <div style={{ height: '100%' }}>
             <p>Aca La preview</p>
           </div>
         </div>
@@ -29,12 +38,24 @@ export const Presup = props => {
         </div>
       </div>
       <div className="row">
-      <div className="col-sm-12">
-      <button type="submit" className="btn btn-success float-right">
-        Siguiente
-      </button>
-      </div>
+        <div className="col-sm-12">
+          <button
+            type="submit"
+            className="btn btn-success float-right"
+            onClick={props.handleNextStep}
+          >
+            Siguiente
+          </button>
+        </div>
       </div>
     </div>
   )
 }
+
+const mapDispatchToProps = {
+  handleNextStep: nextStep
+}
+export const Presup = connect(
+  null,
+  mapDispatchToProps
+)(PrePresup)

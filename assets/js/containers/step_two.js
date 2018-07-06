@@ -13,8 +13,8 @@ const PreStepTwoForm = props => (
         />
         <br />
         <RadioOptionRow
-          options={['Remera', 'Chomba', 'No']}
-          group_name="remera_chomba"
+          options={['Chomba', 'Remera', 'Nada']}
+          group_name="chomba_remera_nada"
         />
       </div>
     </form>
