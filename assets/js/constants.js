@@ -11,3 +11,7 @@ export const STEP = {
   NEXT: 'NEXT',
   PREV: 'PREV'
 }
+
+export const PEDIDO = {
+  CALCULAR_PRECIO: 'CALCULAR_PRECIO'
+}

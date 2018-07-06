@@ -9,7 +9,7 @@ const PreStepFour = props => (
       <div className="container">
         <h1>Elija la combinación que más le guste...</h1>
         <RadioOptionRow
-          options={['lisa', 'corderito', 'trama']}
+          options={['lisa', 'corderito', 'estampado']}
           group_name="capucha"
         />
       </div>
