@@ -7,7 +7,14 @@ import reducers from "./reducers"
 export const myHistory = createBrowserHistory()
 const myRouterMiddleware = routerMiddleware(myHistory)
 
+const args = [applyMiddleware(thunk, myRouterMiddleware)]
+const getArgs = () => {
+  if(window.__REDUX_DEVTOOLS_EXTENSION__)
+   return [...args, window.__REDUX_DEVTOOLS_EXTENSION__() ]
+  return args
+}
+
 export const store = createStore(
   reducers,
-  compose(applyMiddleware(thunk, myRouterMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  compose.apply(this, getArgs())
 )
