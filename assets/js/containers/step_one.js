@@ -6,7 +6,7 @@ import { cel_pattern } from "../patterns"
 
 const handleSubmit = (e, createLead) => {
   e.preventDefault()
-  createLead(extractValues(["colegio", "cantidad", "representante"]))
+  createLead(extractValues(["colegio", "cantidad", "representante", "celular"]))
 }
 const extractValues = keys => {
   return keys.reduce(
@@ -21,14 +21,14 @@ const PreLeadForm = props => (
       id="colegio"
       label="Colegio"
       placeholder="Nombre del Colegio"
-      required={true}
+      // required={true}
     />
     <GenericInput
       id="cantidad"
       label="Cantidad"
       placeholder="Cantidad de Alumnos"
       type="number"
-      required={true}
+      // required={true}
       min="15"
       max="150"
       helpText="A partir de 15 unidades"
@@ -38,14 +38,14 @@ const PreLeadForm = props => (
       label="Representante"
       placeholder="¿ Con quien hablamos ?"
       helpText="Indique su nombre o apodo"
-      required={true}
+      // required={true}
     />
     <GenericInput
-      id="celular_representante"
+      id="celular"
       label="Celular"
       placeholder="¿ Como es tu número ?"
       helpText="Indique su número de celular con código de area (11) 2222-1111"
-      required={true}
+      // required={true}
       pattern={cel_pattern}
     />
     <button type="submit" className="btn btn-success">
