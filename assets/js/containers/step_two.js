@@ -1,5 +1,5 @@
 import React from 'react'
-import { GenericInput } from '../components/input'
+import { RadioOptionRow } from '../components/option_row'
 import { connect } from 'react-redux'
 const PreStepTwoForm = props => (
   <div>
@@ -7,33 +7,16 @@ const PreStepTwoForm = props => (
     <form key={2}>
       <div className="container">
         <h1>Elija la combinación que más le guste...</h1>
-        <div className="option_row">
-          <div className="option">
-            <label htmlFor="exampleRadios1">
-              Buzo
-            </label>
-            <input
-              type="radio"
-              name="buzo_campera"
-              value="buzo"
-            />
-          </div>
-          <div className="option">
-            <label htmlFor="exampleRadios1">
-              Campera
-            </label>
-            <input
-              type="radio"
-              name="buzo_campera"
-              value="campera"
-            />
-          </div>
-        </div>
+        <RadioOptionRow
+          options={['Buzo', 'Campera']}
+          group_name="buzo_campera"
+        />
+        <br />
+        <RadioOptionRow
+          options={['Remera', 'Chomba', 'No']}
+          group_name="remera_chomba"
+        />
       </div>
-
-      <button type="submit" className="btn btn-success">
-        Siguiente
-      </button>
     </form>
   </div>
 )
