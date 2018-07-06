@@ -2,6 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { StepTwoForm } from './step_two'
 import { StepThree } from './step_three'
+import { StepFour } from './step_four'
+
 
 import '../../css/step_container.css'
 import { connect } from 'react-redux'
@@ -21,6 +23,10 @@ const PrePresup = props => {
             <Route
               path={props.match.url + '/step_three'}
               component={StepThree}
+            />
+            <Route
+              path={props.match.url + '/step_four'}
+              component={StepFour}
             />
           </div>
         </div>
