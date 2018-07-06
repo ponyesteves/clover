@@ -22,6 +22,8 @@ defmodule CloverWeb.Router do
     # Use the default browser stack
     pipe_through(:browser)
     get("/", PageController, :index)
+    get("/step_two", PageController, :index)
+
     resources("/users", UserController, only: [:new, :create, :edit, :update])
     resources("/sessions", SessionController, only: [:new, :create])
     delete("/sessions/drop", SessionController, :drop)
