@@ -1,29 +1,29 @@
-import "phoenix_html"
+import 'phoenix_html'
 
-import "bootstrap/dist/css/bootstrap.min.css"
-import "../css/phoenix.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../css/phoenix.css'
 
-import React from "react"
-import ReactDOM from "react-dom"
-import { Provider } from "react-redux"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
 import { store, myHistory } from './store'
-import { LeadForm } from "./containers/step_one"
-import { StepTwoForm } from "./containers/step_two"
-import { Router, Switch, Route } from "react-router-dom"
+import { Presup } from './containers/presup'
+import { LeadForm } from './containers/step_one'
+import { Router, Switch, Route } from 'react-router-dom'
 
 const Form = props => (
   <Provider store={store}>
     <Router history={myHistory}>
       <Switch>
         <Route exact path="/" component={LeadForm} />
-        <Route path="/step_two" component={StepTwoForm} />
+        <Route path="/presup" component={Presup} />
       </Switch>
     </Router>
   </Provider>
 )
 
-ReactDOM.render(<Form />, document.getElementById("my-react-app"))
+ReactDOM.render(<Form />, document.getElementById('my-react-app'))
 
 //     <div className="form-check">
 // <input type="checkbox" className="form-check-input" id="exampleCheck1" />

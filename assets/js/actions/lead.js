@@ -1,8 +1,10 @@
-import { LEAD } from "../constants"
-import { push } from "react-router-redux"
-export const createLead = (member) => dispatch => {
+import { LEAD } from '../constants'
+import { app_base } from '../config'
+
+import { push } from 'react-router-redux'
+export const createLead = member => dispatch => {
   // Post To API /lead
-  dispatch(push('/step_two'))
+  dispatch(push(`${app_base}/step_two`))
   dispatch({
     type: LEAD.CREATE,
     member
