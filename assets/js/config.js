@@ -1,10 +1,12 @@
 export const app_base = '/presup'
+
 export const precios_base = [
   { max: 25, precio: 1800 },
   { max: 40, precio: 1700 },
   { max: 60, precio: 1600 },
   { max: 200, precio: 1500 }
 ]
+
 export const remera_chomba_nada = {
   nada: 0,
   remera: 400,

@@ -1,10 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+
+// Detalle de Pedido
+import { Pedido } from '../components/pedido'
+// Steps
 import { StepTwoForm } from './step_two'
 import { StepThree } from './step_three'
 import { StepFour } from './step_four'
 import { StepFive } from './step_five'
-
 
 import '../../css/step_container.css'
 import { connect } from 'react-redux'
@@ -37,9 +40,7 @@ const PrePresup = props => {
       </div>
       <div className="row">
         <div className="col-sm-12 step_container">
-          <div>
-            <p>Acá Saldo</p>
-          </div>
+          <Pedido />
         </div>
       </div>
       <div className="row">

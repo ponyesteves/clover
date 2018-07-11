@@ -1,4 +1,4 @@
-import { LEAD } from '../constants'
+import { LEAD, PEDIDO } from '../constants'
 import { app_base } from '../config'
 import { push } from 'react-router-redux'
 
@@ -8,5 +8,9 @@ export const createLead = member => dispatch => {
   dispatch({
     type: LEAD.CREATE,
     member
+  })
+  dispatch({
+    type: PEDIDO.CALCULAR_PRECIO,
+    changes: { lead: member }
   })
 }

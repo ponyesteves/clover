@@ -7,3 +7,7 @@ test('precio base', () => {
   expect(getPrecioBase(41)).toBe(precios_base[2].precio)
   expect(getPrecioBase(100)).toBe(precios_base[3].precio)
 })
+
+test('precio base with text', () => {
+  expect(getPrecioBase("15")).toBe(precios_base[0].precio)
+})
