@@ -30,7 +30,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   border-radius: 8px;
-  background-color: rgb(168, 233, 211);
+  background-color:#D9EDF7;
 
 }
 
@@ -48,9 +48,11 @@ body {
 }
 
 .option img {
-  width: 100%;
+  height: 50px;
+  height: 50px;
   margin-bottom: 10px;
 }
+
 
 .option input[type="radio"]{
   margin-top: 10px;
@@ -60,4 +62,19 @@ body {
 
 .step_container .container h1 {
   width: 100%;
+}
+.nav{
+  width: 50%;
+}
+
+.btn.btn-success {
+  color: #fff !important;
+  width:100%;
+  background-color:  rgb(162, 212, 142);
+  border-color:  rgb(162, 212, 142);
+}
+
+.btn.btn-success:hover {
+  background-color: rgb(162, 212, 142);
+  border-color: #DFF0D8;
 }

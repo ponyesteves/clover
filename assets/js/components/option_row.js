@@ -23,7 +23,7 @@ const PreRadioOptionItem = props => {
   return (
     <div className="option">
       <label htmlFor={props.label}>
-        <h4>{humanize(props.label)}</h4>
+        <h5>{humanize(props.label)}</h5>
         <img htmlFor={props.label} src="../images/buzo.png" />
       </label>
       <input

@@ -43,23 +43,21 @@ const PrePresup = props => {
         </div>
       </div>
       <div className="row">
-        <div className="col-sm-12">
-          <div className="float-right">
-            <button
-              type="submit"
-              className="btn btn-warning"
-              onClick={props.handlePrevStep}
-            >
-              Anterior
-            </button>
-            <button
-              type="submit"
-              className="btn btn-success"
-              onClick={props.handleNextStep}
-            >
-              Siguiente
-            </button>
+        <div className="nav">
+          <a
+            className="btn btn-success"
+            onClick={props.handlePrevStep}
+          >
+            Anterior
+          </a>
           </div>
+          <div className="col-sm-6">
+          <a
+            className="btn btn-success"
+            onClick={props.handleNextStep}
+          >
+            Siguiente
+          </a>
         </div>
       </div>
     </div>
