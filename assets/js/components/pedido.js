@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const prePedido = (props) => (
-  <div className="row">
+  <div>
     <div className="col-md-3">Cantidad: {props.cantidad}</div>
     <div className="col-md-3">Precio Unitario: {props.precio_unitario}</div>
     <div className="col-md-3">Total: {props.precio_total}</div>

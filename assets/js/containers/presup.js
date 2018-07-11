@@ -14,7 +14,6 @@ import { connect } from 'react-redux'
 import { nextStep, prevStep } from '../actions/steps'
 
 const PrePresup = props => {
-  console.log(props)
   return (
     <div className="container">
       <div className="row">

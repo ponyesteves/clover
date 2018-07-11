@@ -10,12 +10,13 @@ import { Provider } from 'react-redux'
 import { store, myHistory } from './store'
 import { Presup } from './containers/presup'
 import { LeadForm } from './containers/step_one'
-import { Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route, Redirect } from 'react-router-dom'
 
 const Form = props => (
   <Provider store={store}>
     <Router history={myHistory}>
       <Switch>
+        <Redirect exact path="/" to="/presup/step_one" />
         <Route exact path="/presup/step_one" component={LeadForm} />
         <Route path="/presup" component={Presup} />
       </Switch>

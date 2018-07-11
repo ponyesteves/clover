@@ -12,7 +12,7 @@ export const change_option = (key, option, checked) => (dispatch, getState) => {
     })
     dispatch({
       type: PEDIDO.CALCULAR_PRECIO,
-      changes: { options: getState().options }
+      changes: { options: getState().options, lead: getState().lead }
     })
   }
 }

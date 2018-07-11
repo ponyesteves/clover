@@ -22,9 +22,10 @@ export const RadioOptionRow = props => {
 const PreRadioOptionItem = props => {
   return (
     <div className="option">
-      <label htmlFor="exampleRadios1">{humanize(props.label)}</label>
+      <label htmlFor={props.label}>{humanize(props.label)}</label>
       <img src="../images/buzo.png" />
       <input
+        id={props.label}
         type="radio"
         name={props.group_name}
         value={props.option_value}

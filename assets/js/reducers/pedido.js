@@ -19,7 +19,7 @@ export const pedido = (state = init_pedido, action) => {
 }
 
 const calcularPrecio = newState => {
-  console.log(newState.options)
+  console.log(newState.lead)
   const precio_base = getPrecioBase(newState.lead.cantidad) + getPreciosAdicionales(newState.options)
   return {
     ...newState,
