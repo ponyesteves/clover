@@ -2,7 +2,7 @@
   "name": "clover",
   "version": "0.1.0",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "build": "webpack",
     "watch": "webpack --watch-stdin --progress --color",
     "prettier": "prettier --write js/*.js"

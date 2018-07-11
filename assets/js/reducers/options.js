@@ -1,11 +1,5 @@
 import { OPTIONS } from '../constants'
-const init_options = {
-  buzo_campera: 'buzo',
-  chomba_remera_nada: 'nada',
-  colores: 'uno',
-  capucha: 'lisa',
-  bordados: 'hasta_tres'
-}
+import { init_options } from '../config'
 
 export const options = (state = init_options, action) => {
   switch (action.type) {

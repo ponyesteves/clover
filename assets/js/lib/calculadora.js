@@ -3,7 +3,8 @@ import { sum } from '../lib/helpers'
 import { all } from '../config'
 
 export const getPrecioBase = cantidad => {
-  return precios_base.find(precio => parseInt(cantidad) <= precio.max).precio
+  const precio_base = precios_base.find(precio => parseInt(cantidad) <= precio.max)
+  return precio_base && precio_base.precio || 0
 }
 
 export const getPreciosAdicionales = options => {

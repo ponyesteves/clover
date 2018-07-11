@@ -6,7 +6,8 @@ import {
   remera_chomba_nada,
   capucha,
   colores,
-  bordados
+  bordados,
+  init_options
 } from '../config'
 
 test('precio base', () => {
@@ -50,7 +51,11 @@ test('buzo con chomba corderito', () => {
 })
 
 test('campera con chomba lisa dos colores', () => {
-  const options = { remera_chomba_nada: 'chomba', capucha: 'corderito', colores: 'dos' }
+  const options = {
+    remera_chomba_nada: 'chomba',
+    capucha: 'corderito',
+    colores: 'dos'
+  }
   expect(getPreciosAdicionales(options)).toBe(
     sum(remera_chomba_nada.chomba, capucha.corderito, colores.dos)
   )
@@ -64,6 +69,15 @@ test('campera con chomba lisa tres colores y hasta seis bordados', () => {
     bordados: 'hasta_seis'
   }
   expect(getPreciosAdicionales(options)).toBe(
-    sum(remera_chomba_nada.chomba, capucha.corderito, colores.tres, bordados.hasta_seis)
+    sum(
+      remera_chomba_nada.chomba,
+      capucha.corderito,
+      colores.tres,
+      bordados.hasta_seis
+    )
   )
+})
+
+test('initial options', () => {
+  expect(getPreciosAdicionales(init_options)).toBe(sum(0))
 })

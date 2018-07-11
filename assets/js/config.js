@@ -19,7 +19,7 @@ export const remera_chomba_nada = {
 }
 
 export const capucha = {
-  liso: 0,
+  lisa: 0,
   corderito: 150,
   estampado: 150
 }
@@ -31,8 +31,16 @@ export const colores = {
 }
 
 export const bordados = {
-  hasta_tres: 70,
+  hasta_tres: 0,
   hasta_seis: 150
 }
 
 export const all = {...buzo_campera, ...remera_chomba_nada, ...capucha, ...colores, ...bordados}
+
+export const init_options = {
+  buzo_campera: 'buzo',
+  chomba_remera_nada: 'nada',
+  colores: 'uno',
+  capucha: 'lisa',
+  bordados: 'hasta_tres'
+}
