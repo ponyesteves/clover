@@ -2,12 +2,14 @@ import React from 'react'
 import { GenericInput } from '../components/input'
 import { connect } from 'react-redux'
 import { createLead } from '../actions/lead'
+import { nextStep } from '../actions/steps'
 import { cel_pattern } from '../patterns'
 
 const handleSubmit = (e, createLead) => {
   e.preventDefault()
-  createLead(extractValues(['colegio', 'cantidad', 'representante', 'celular']))
+  createLead()
 }
+
 const extractValues = keys => {
   return keys.reduce(
     (prev, curr) => ({ ...prev, [curr]: document.getElementById(curr).value }),
@@ -24,6 +26,9 @@ const PreLeadForm = props => (
             id="colegio"
             label="Colegio"
             placeholder="Nombre del Colegio"
+            value={props.lead.colegio}
+            handleChange={props.handleCreateLead}
+
             // required={true}
           />
           <GenericInput
@@ -35,6 +40,8 @@ const PreLeadForm = props => (
             min="15"
             max="150"
             helpText="A partir de 15 unidades"
+            value={props.lead.cantidad}
+            handleChange={props.handleCreateLead}
           />
           <GenericInput
             id="representante"
@@ -42,6 +49,8 @@ const PreLeadForm = props => (
             placeholder="¿ Con quien hablamos ?"
             helpText="Indique su nombre o apodo"
             // required={true}
+            value={props.lead.representante}
+            handleChange={props.handleCreateLead}
           />
           <GenericInput
             id="celular"
@@ -50,21 +59,34 @@ const PreLeadForm = props => (
             helpText="Indique su número de celular con código de area (11) 2222-1111"
             // required={true}
             pattern={cel_pattern}
+            value={props.lead.celular}
+            handleChange={props.handleCreateLead}
           />
-          <button type="submit" className="btn btn-success float-right">
+          <a
+            className="btn btn-success float-right"
+            onClick={props.handleNextStep}
+          >
             Siguiente
-          </button>
+          </a>
         </form>
       </div>
     </div>
   </div>
 )
 
+const mapStateToProps = state => ({
+  lead: state.lead
+})
+
 const mapDispatchToProps = {
-  createLead
+  handleCreateLead: (e) =>
+    createLead(
+      extractValues(['colegio', 'cantidad', 'representante', 'celular'])
+    ),
+  handleNextStep: nextStep
 }
 
 export const LeadForm = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(PreLeadForm)

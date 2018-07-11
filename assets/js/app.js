@@ -16,7 +16,7 @@ const Form = props => (
   <Provider store={store}>
     <Router history={myHistory}>
       <Switch>
-        <Route exact path="/" component={LeadForm} />
+        <Route exact path="/presup/step_one" component={LeadForm} />
         <Route path="/presup" component={Presup} />
       </Switch>
     </Router>

@@ -13,6 +13,8 @@ export const GenericInput = props => (
       pattern={props.pattern}
       min={props.min}
       max={props.max}
+      onChange={props.handleChange}
+      value={props.value}
     />
     <small id="emailHelp" className="form-text text-muted">
       {props.helpText}
