@@ -7,15 +7,15 @@ export const precios_base = [
   { max: 200, precio: 1500 }
 ]
 
+export const buzo_campera = {
+  buzo: 0,
+  campera: 150
+}
+
 export const remera_chomba_nada = {
   nada: 0,
   remera: 400,
   chomba: 600
-}
-
-export const buzo_campera = {
-  buzo: 0,
-  campera: 150
 }
 
 export const capucha = {
@@ -34,3 +34,5 @@ export const bordados = {
   hasta_tres: 70,
   hasta_seis: 150
 }
+
+export const all = {...buzo_campera, ...remera_chomba_nada, ...capucha, ...colores, ...bordados}
