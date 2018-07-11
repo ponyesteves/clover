@@ -5,9 +5,10 @@ import { createLead } from '../actions/lead'
 import { nextStep } from '../actions/steps'
 import { cel_pattern } from '../patterns'
 
-const handleSubmit = (e, createLead) => {
+const handleSubmit = (e, createLead, nextStep) => {
   e.preventDefault()
   createLead()
+  nextStep()
 }
 
 const extractValues = keys => {
@@ -21,22 +22,21 @@ const PreLeadForm = props => (
   <div className="container">
     <div className="row">
       <div className="col-sm-12">
-        <form id="leadForm" onSubmit={e => handleSubmit(e, props.createLead)}>
+        <form id="leadForm" onSubmit={e => handleSubmit(e, props.handleCreateLead, props.handleNextStep)}>
           <GenericInput
             id="colegio"
             label="Colegio"
             placeholder="Nombre del Colegio"
             value={props.lead.colegio}
             handleChange={props.handleCreateLead}
-
-            // required={true}
+            required={true}
           />
           <GenericInput
             id="cantidad"
             label="Cantidad"
             placeholder="Cantidad de Alumnos"
             type="number"
-            // required={true}
+            required={true}
             min="15"
             max="150"
             helpText="A partir de 15 unidades"
@@ -48,7 +48,7 @@ const PreLeadForm = props => (
             label="Representante"
             placeholder="¿ Con quien hablamos ?"
             helpText="Indique su nombre o apodo"
-            // required={true}
+            required={true}
             value={props.lead.representante}
             handleChange={props.handleCreateLead}
           />
@@ -57,17 +57,17 @@ const PreLeadForm = props => (
             label="Celular"
             placeholder="¿ Como es tu número ?"
             helpText="Indique su número de celular con código de area (11) 2222-1111"
-            // required={true}
+            required={true}
             pattern={cel_pattern}
             value={props.lead.celular}
             handleChange={props.handleCreateLead}
           />
-          <a
+          <button
+            type="submit"
             className="btn btn-success float-right"
-            onClick={props.handleNextStep}
           >
             Siguiente
-          </a>
+          </button>
         </form>
       </div>
     </div>
