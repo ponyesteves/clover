@@ -22,8 +22,10 @@ export const RadioOptionRow = props => {
 const PreRadioOptionItem = props => {
   return (
     <div className="option">
-      <label htmlFor={props.label}>{humanize(props.label)}</label>
-      <img src="../images/buzo.png" />
+      <label htmlFor={props.label}>
+        <h4>{humanize(props.label)}</h4>
+        <img htmlFor={props.label} src="../images/buzo.png" />
+      </label>
       <input
         id={props.label}
         type="radio"
