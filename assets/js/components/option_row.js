@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { humanize } from '../lib/helpers'
 import { change_option } from '../actions/options'
 export const RadioOptionRow = props => {
   return (
@@ -21,7 +22,7 @@ export const RadioOptionRow = props => {
 const PreRadioOptionItem = props => {
   return (
     <div className="option">
-      <label htmlFor="exampleRadios1">{props.label}</label>
+      <label htmlFor="exampleRadios1">{humanize(props.label)}</label>
       <img src="../images/buzo.png" />
       <input
         type="radio"

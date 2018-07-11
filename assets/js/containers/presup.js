@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { StepTwoForm } from './step_two'
 import { StepThree } from './step_three'
 import { StepFour } from './step_four'
+import { StepFive } from './step_five'
 
 
 import '../../css/step_container.css'
@@ -24,10 +25,8 @@ const PrePresup = props => {
               path={props.match.url + '/step_three'}
               component={StepThree}
             />
-            <Route
-              path={props.match.url + '/step_four'}
-              component={StepFour}
-            />
+            <Route path={props.match.url + '/step_four'} component={StepFour} />
+            <Route path={props.match.url + '/step_five'} component={StepFive} />
           </div>
         </div>
         <div className="col-sm-4 step_container">

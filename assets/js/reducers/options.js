@@ -3,7 +3,8 @@ const init_options = {
   buzo_campera: 'buzo',
   chomba_remera_nada: 'nada',
   colores: 'uno',
-  capucha: 'lisa'
+  capucha: 'lisa',
+  bordados: 'hasta_tres'
 }
 
 export const options = (state = init_options, action) => {

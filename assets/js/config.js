@@ -28,4 +28,7 @@ export const colores = {
   tres: 150
 }
 
-export const bordados = [{ max: 5, precio: 70 }, { max: 7, precio: 150 }]
+export const bordados = {
+  hasta_tres: 70,
+  hasta_seis: 150
+}
