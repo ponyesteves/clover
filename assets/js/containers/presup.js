@@ -31,11 +31,11 @@ const PrePresup = props => {
             <Route path={props.match.url + '/step_five'} component={StepFive} />
           </div>
         </div>
-        <div className="col-sm-4 step_container">
+        {/* <div className="col-sm-4 step_container">
           <div style={{ height: '100%' }}>
             <p>Aca La preview</p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="row">
         <div className="col-sm-12 step_container">
@@ -51,7 +51,7 @@ const PrePresup = props => {
             Anterior
           </a>
           </div>
-          <div className="col-sm-6">
+          <div className="nav">
           <a
             className="btn btn-success"
             onClick={props.handleNextStep}
