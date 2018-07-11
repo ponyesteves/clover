@@ -1,10 +1,13 @@
 import React from 'react'
 import { RadioOptionRow } from '../components/option_row'
 import { connect } from 'react-redux'
+import { StepTitle} from "../components/misc"
+
 const PreStepTwoForm = props => (
   <div>
       <div className="container">
-        <h2 className="title">¿ Que vas a elegir ?</h2>
+
+        <StepTitle>¿ Que vas a elegir ?</StepTitle>
         <RadioOptionRow
           options={['Buzo', 'Campera']}
           group_name="buzo_campera"
