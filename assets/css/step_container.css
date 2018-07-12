@@ -1,13 +1,14 @@
 :root {
   --main-side-padding: 1rem;
   --separata: 1rem;
-  --img-size: 5.5rem;
+  --img-size: 6rem;
   --step-color: #D9EDF7;
   --btn-color: rgb(162, 212, 142);
   /* --pedido-item-color: #FCF8E3; */
   --pedido-item-color: #F2DEDE;
   --pedido-item-padding: 1rem;
   --radius: 0.5rem;
+  --text-sixe: 0.9rem;
 }
 
 body {
@@ -49,6 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: var(--text-size);
 }
 
 .option img {
@@ -94,7 +96,7 @@ body {
 }
 
 .pedido_item {
-  font-size: 0.9rem;
+  font-size: var(--text-size);
   width: 33.32%;
   border-radius: var(--radius);
   display: flex;
