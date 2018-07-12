@@ -64,7 +64,7 @@ const PreStepOne = props => (
       value={props.lead.celular}
       handleChange={props.handleCreateLead}
     />
-    <button type="submit" id="submitFormStepOne" style={{display: 'none'}} />
+    <button type="submit" id="submitFormStepOne" style={{ display: 'none' }} />
   </form>
 )
 

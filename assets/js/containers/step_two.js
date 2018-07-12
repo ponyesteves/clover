@@ -5,15 +5,13 @@ import { StepTitle } from '../components/misc'
 
 const PreStepTwo = () => (
   <div>
-    <div className="container">
-      <StepTitle>¿ Que vas a elegir ?</StepTitle>
-      <RadioOptionRow options={['Buzo', 'Campera']} group_name="buzo_campera" />
-      <br />
-      <RadioOptionRow
-        options={['Chomba', 'Remera', 'Nada']}
-        group_name="chomba_remera_nada"
-      />
-    </div>
+    <StepTitle>¿ Que vas a elegir ?</StepTitle>
+    <RadioOptionRow options={['Buzo', 'Campera']} group_name="buzo_campera" />
+    <br />
+    <RadioOptionRow
+      options={['Chomba', 'Remera', 'Nada']}
+      group_name="chomba_remera_nada"
+    />
   </div>
 )
 
