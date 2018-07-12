@@ -4,12 +4,13 @@
   --img-size: 6rem;
   --step-color: #D9EDF7;
   --btn-color: rgb(162, 212, 142);
+  /* --pedido-item-color: #FCF8E3; */
   --pedido-item-color: #F2DEDE;
   --pedido-item-padding: 1rem;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding-left: var(--main-side-padding);
   padding-right: var(--main-side-padding);
 }
@@ -28,6 +29,7 @@ body {
   background-color: var(--step-color);
   padding: 1rem;
 }
+
 
 .step_container .option_row {
   display: flex;
@@ -98,7 +100,12 @@ body {
   padding: var(--pedido-item-padding);
   justify-content: space-between;
   text-align: center;
+
   background-color: var(--pedido-item-color);
+  /* border: 0.1rem solid var(--step-color);
+  border: 0.1rem solid var(--btn-color); */
+  border: 0.1rem solid #FCF8E3;
+  filter: brightness(100%);
 
 }
 

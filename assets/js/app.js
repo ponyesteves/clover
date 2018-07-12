@@ -1,6 +1,4 @@
 import 'phoenix_html'
-
-// import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css/phoenix.css'
 
 import React from 'react'
@@ -23,10 +21,3 @@ const Form = props => (
 )
 
 ReactDOM.render(<Form />, document.getElementById('my-react-app'))
-
-//     <div className="form-check">
-// <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-// <label className="form-check-label" for="exampleCheck1">
-//   Check me out
-// </label>
-// </div>
