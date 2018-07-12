@@ -1,6 +1,6 @@
 :root {
   --main-side-padding: 1.5rem;
-  --separata: 1.2rem;
+  --separata: 1.1rem;
   --img-size: 6rem;
   --step-color: #D9EDF7;
   --btn-color: rgb(162, 212, 142);
@@ -34,6 +34,12 @@ body {
   margin-top: var(--separata);
 }
 
+/* Label Text */
+.option_row label > div {
+  width: 100%;
+  margin-bottom: var(--separata);
+}
+
 .option_row .option {
   display: flex;
   flex-direction: column;
@@ -45,16 +51,15 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.option h5 {
-  margin-bottom: var(--separata)
-}
-
 .option input[type="radio"]{
   margin-top: 10px;
   height: 30px;
   width: 30px;
 }
 
+.title {
+  font-size: 1.3rem;
+}
 
 .btn.btn-success {
   color: #fff !important;
