@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const prePedido = props => (
   <div
-    className="pedido_row"
+    className="pedido_container"
     style={{ display: (props.step == 'one' && 'none') || 'block' }}
   >
     <div>Cantidad: {props.cantidad}</div>

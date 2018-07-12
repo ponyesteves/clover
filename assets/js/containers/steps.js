@@ -17,20 +17,31 @@ import { Pedido } from '../components/pedido'
 
 import '../../css/step_container.css'
 
+const stepsAvailable = [
+  { path: 'one', component: StepOne },
+  { path: 'two', component: StepTwo },
+  { path: 'three', component: StepThree },
+  { path: 'four', component: StepFour },
+  { path: 'five', component: StepFive }
+]
+
 const PreSteps = props => {
   return (
     <div className="main_container">
-      <Route path={props.match.url + '/one'} component={StepOne} />
-      <Route path={props.match.url + '/two'} component={StepTwo} />
-      <Route path={props.match.url + '/three'} component={StepThree} />
-      <Route path={props.match.url + '/four'} component={StepFour} />
-      <Route path={props.match.url + '/five'} component={StepFive} />
+      <div className="step_container">
+        {stepsAvailable.map((step, idx) => (
+          <Route
+            key={idx}
+            path={`${props.match.url}/${step.path}`}
+            component={step.component}
+          />
+        ))}
+      </div>
       <Pedido />
       <Navs />
     </div>
   )
 }
-
 
 export const Steps = connect(
   null,
