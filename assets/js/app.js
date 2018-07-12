@@ -9,7 +9,6 @@ import { Provider } from 'react-redux'
 
 import { store, myHistory } from './store'
 import { Steps } from './containers/steps'
-import { StepOne } from './containers/step_one'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
 
 const Form = props => (
@@ -17,7 +16,6 @@ const Form = props => (
     <Router history={myHistory}>
       <Switch>
         <Redirect exact path="/" to="/steps/one" />
-        <Route exact path="/steps/one" component={StepOne} />
         <Route path="/steps" component={Steps} />
       </Switch>
     </Router>
