@@ -8,67 +8,27 @@ import { StepTwoForm } from './step_two'
 import { StepThree } from './step_three'
 import { StepFour } from './step_four'
 import { StepFive } from './step_five'
+// Navs
+import { Navs } from '../components/navs'
 
 import '../../css/step_container.css'
 import { connect } from 'react-redux'
-import { nextStep, prevStep } from '../actions/steps'
 
 const PrePresup = props => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-8 step_container">
-          <div>
-            <Route
-              path={props.match.url + '/step_two'}
-              component={StepTwoForm}
-            />
-            <Route
-              path={props.match.url + '/step_three'}
-              component={StepThree}
-            />
-            <Route path={props.match.url + '/step_four'} component={StepFour} />
-            <Route path={props.match.url + '/step_five'} component={StepFive} />
-          </div>
-        </div>
-        {/* <div className="col-sm-4 step_container">
-          <div style={{ height: '100%' }}>
-            <p>Aca La preview</p>
-          </div>
-        </div> */}
-      </div>
-      <div className="row">
-        <div className="col-sm-12 step_container">
-          <Pedido />
-        </div>
-      </div>
-      <div className="row">
-        <div className="nav">
-          <a
-            className="btn btn-success"
-            onClick={props.handlePrevStep}
-          >
-            Anterior
-          </a>
-          </div>
-          <div className="nav">
-          <a
-            className="btn btn-success"
-            onClick={props.handleNextStep}
-          >
-            Siguiente
-          </a>
-        </div>
-      </div>
+    <div className="main_container">
+      <Route path={props.match.url + '/step_two'} component={StepTwoForm} />
+      <Route path={props.match.url + '/step_three'} component={StepThree} />
+      <Route path={props.match.url + '/step_four'} component={StepFour} />
+      <Route path={props.match.url + '/step_five'} component={StepFive} />
+      <Pedido />
+      <Navs />
     </div>
   )
 }
 
-const mapDispatchToProps = {
-  handleNextStep: nextStep,
-  handlePrevStep: prevStep
-}
+
 export const Presup = connect(
   null,
-  mapDispatchToProps
+  null
 )(PrePresup)
