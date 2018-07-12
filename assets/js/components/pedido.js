@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { PedidoItem } from '../components/misc'
+
 const prePedido = props => (
   <div
-    className="pedido_container"
-    style={{ display: (props.step == 'one' && 'none') || 'block' }}
+    className="pedido_row"
+    style={{ display: (props.step == 'one' && 'none') || 'flex' }}
   >
-    <div>Cantidad: {props.cantidad}</div>
-    <div>Precio Unitario: {props.precio_unitario}</div>
-    <div>Total: {props.precio_total}</div>
+    <PedidoItem label="Cant." value={props.cantidad} />
+    <PedidoItem label="Precio" value={props.precio_unitario} prefix="$ " />
+    <PedidoItem label="Total" value={props.precio_total} prefix="$ " />
   </div>
 )
 

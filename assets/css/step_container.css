@@ -4,6 +4,8 @@
   --img-size: 6rem;
   --step-color: #D9EDF7;
   --btn-color: rgb(162, 212, 142);
+  --pedido-item-color: #F2DEDE;
+  --pedido-item-padding: 1rem;
 }
 
 body {
@@ -81,8 +83,26 @@ body {
   justify-content: space-between;
 }
 
-/* Globals */
+.pedido_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: var(--separata);
+}
 
+.pedido_item {
+  width: 32%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--pedido-item-padding);
+  justify-content: space-between;
+  text-align: center;
+  background-color: var(--pedido-item-color);
+
+}
+
+/* Globals */
 .full {
   width: 100%;
 }
