@@ -10,20 +10,25 @@ defmodule CloverWeb.ZohoController do
     redirect(conn, external: Clover.Zoho.request_oauth_url())
   end
 
-  def create_lead(conn, _params) do
+  def create_lead(conn, params) do
+    IO.inspect params
+    url = "https://www.zohoapis.com/crm/v2/leads"
+    %{"colegio" => colegio, "representante" => representante, "cantidad" => cantidad, "celular" => celular } = params
     payload =
       %{
         data: [
           %{
-            Last_Name: "Prueba API",
-            Company: "Herny Company"
+            Last_Name: colegio,
+            Company: colegio,
+            First_Name: representante,
+            Designation: create_designation(colegio, representante, cantidad),
+            Mobile: celular,
+            No_of_Employees: cantidad
           }
         ],
         wf_trigger: true
       }
       |> Poison.encode!()
-
-    url = "https://www.zohoapis.com/crm/v2/leads"
 
     headers = [{"Authorization", "Bearer " <> Clover.Zoho.get_access_token()}]
 
@@ -34,5 +39,9 @@ defmodule CloverWeb.ZohoController do
       {:error, msg} ->
         json(conn, %{msg: msg})
     end
+  end
+
+  defp create_designation(colegio, representante, cantidad) do
+    "Para #{cantidad} Alumnos del Colegio #{colegio} por #{representante}"
   end
 end

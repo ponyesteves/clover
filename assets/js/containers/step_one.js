@@ -1,13 +1,13 @@
 import React from 'react'
 import { GenericInput } from '../components/input'
 import { connect } from 'react-redux'
-import { createLead } from '../actions/lead'
+import { createLead, sumbitLead } from '../actions/lead'
 import { nextStep } from '../actions/steps'
 import { cel_pattern } from '../patterns'
 
-const handleSubmit = (e, createLead, nextStep) => {
+const handleSubmit = (e, sumbitLead, nextStep) => {
   e.preventDefault()
-  createLead()
+  sumbitLead()
   nextStep()
 }
 
@@ -23,7 +23,7 @@ const PreStepOne = props => (
     <form
       id="stepOneForm"
       onSubmit={e =>
-        handleSubmit(e, props.handleCreateLead, props.handleNextStep)
+        handleSubmit(e, props.sumbitLead, props.handleNextStep)
       }
     >
       <GenericInput
@@ -83,6 +83,7 @@ const mapDispatchToProps = {
     createLead(
       extractValues(['colegio', 'cantidad', 'representante', 'celular'])
     ),
+  sumbitLead,
   handleNextStep: nextStep
 }
 
