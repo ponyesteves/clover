@@ -1,6 +1,6 @@
 import 'phoenix_html'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css/phoenix.css'
 
 import React from 'react'
