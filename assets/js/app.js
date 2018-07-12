@@ -8,17 +8,17 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import { store, myHistory } from './store'
-import { Presup } from './containers/presup'
-import { LeadForm } from './containers/step_one'
+import { Steps } from './containers/steps'
+import { StepOne } from './containers/step_one'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
 
 const Form = props => (
   <Provider store={store}>
     <Router history={myHistory}>
       <Switch>
-        <Redirect exact path="/" to="/presup/step_one" />
-        <Route exact path="/presup/step_one" component={LeadForm} />
-        <Route path="/presup" component={Presup} />
+        <Redirect exact path="/" to="/steps/one" />
+        <Route exact path="/steps/one" component={StepOne} />
+        <Route path="/steps" component={Steps} />
       </Switch>
     </Router>
   </Provider>

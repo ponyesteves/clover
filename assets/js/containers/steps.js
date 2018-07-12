@@ -14,13 +14,13 @@ import { Navs } from '../components/navs'
 import '../../css/step_container.css'
 import { connect } from 'react-redux'
 
-const PrePresup = props => {
+const PreSteps = props => {
   return (
     <div className="main_container">
-      <Route path={props.match.url + '/step_two'} component={StepTwoForm} />
-      <Route path={props.match.url + '/step_three'} component={StepThree} />
-      <Route path={props.match.url + '/step_four'} component={StepFour} />
-      <Route path={props.match.url + '/step_five'} component={StepFive} />
+      <Route path={props.match.url + '/two'} component={StepTwoForm} />
+      <Route path={props.match.url + '/three'} component={StepThree} />
+      <Route path={props.match.url + '/four'} component={StepFour} />
+      <Route path={props.match.url + '/five'} component={StepFive} />
       <Pedido />
       <Navs />
     </div>
@@ -28,7 +28,7 @@ const PrePresup = props => {
 }
 
 
-export const Presup = connect(
+export const Steps = connect(
   null,
   null
-)(PrePresup)
+)(PreSteps)

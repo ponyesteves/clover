@@ -18,7 +18,7 @@ const extractValues = keys => {
   )
 }
 
-const PreLeadForm = props => (
+const PreStepOne = props => (
   <div className="container">
     <div className="row">
       <div className="col-sm-12">
@@ -86,7 +86,7 @@ const mapDispatchToProps = {
   handleNextStep: nextStep
 }
 
-export const LeadForm = connect(
+export const StepOne = connect(
   mapStateToProps,
   mapDispatchToProps
-)(PreLeadForm)
+)(PreStepOne)
