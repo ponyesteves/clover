@@ -1,60 +1,53 @@
+:root {
+  --main-side-padding: 1.5rem;
+  --separata: 1.2rem;
+  --img-size: 6rem;
+  --step-color: #D9EDF7;
+  --btn-color: rgb(162, 212, 142);
+}
+
 body {
   font-family: sans-serif;
+  padding-left: var(--main-side-padding);
+  padding-right: var(--main-side-padding);
 }
-.container .title {
-  text-align: center;
-  margin-top: 12px;
-  margin-bottom: 12px;
+
+.main_container > div {
+  margin-top: var(--separata);
 }
 
 .step_container {
-  padding: 2px;
-}
-.step_container > div {
-  display: flex;
-}
-
-.step_container .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 25px;
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  border-radius: 8px;
+  background-color: var(--step-color);
+  padding: 1rem;
 }
 
-.step_container .container .option_row {
+.step_container .option_row {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-radius: 8px;
-  background-color:#D9EDF7;
+  margin-top: var(--separata);
 }
 
-.step_container .pedido_row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-radius: 8px;
-  background-color:#D9EDF7;
-}
-.step_container .container .option_row .option {
-  padding: 15px;
+.option_row .option {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.option label {
-  font-size: 20px;
-  font-weight: 400;
-  text-align: center;
-}
-
 .option img {
-  height: 50px;
-  height: 50px;
-  margin-bottom: 10px;
+  height: var(--img-size);
+  margin-bottom: 0.5rem;
 }
 
+.option h5 {
+  margin-bottom: var(--separata)
+}
 
 .option input[type="radio"]{
   margin-top: 10px;
@@ -62,22 +55,33 @@ body {
   width: 30px;
 }
 
-.step_container .container h1 {
-  width: 100%;
-}
-.nav{
-  width: 50%;
-  padding: 1em;
-}
 
 .btn.btn-success {
   color: #fff !important;
-  width:100%;
-  background-color:  rgb(162, 212, 142);
-  border-color:  rgb(162, 212, 142);
+  background-color: var(--btn-color) !important;
+  border-color:  var(--btn-color) !important;
 }
 
 .btn.btn-success:hover {
-  background-color: rgb(162, 212, 142);
-  border-color: #DFF0D8;
+  filter: brightness(90%)
+}
+
+.btn.btn-success:not(:disabled):not(.disabled):active {
+  filter: brightness(110%);
+}
+
+.navs_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Globals */
+
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 49.8%;
 }
