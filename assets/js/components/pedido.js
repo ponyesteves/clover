@@ -8,7 +8,7 @@ const prePedido = props => (
     className="pedido_row"
     style={{ display: (props.step == 'one' && 'none') || 'flex' }}
   >
-    <PedidoItem label="Cant." value={props.cantidad} />
+    <PedidoItem label="Alumnos" value={props.cantidad} />
     <PedidoItem label="Precio" value={props.precio_unitario} prefix="$ " />
     <PedidoItem label="Total" value={props.precio_total} prefix="$ " />
   </div>

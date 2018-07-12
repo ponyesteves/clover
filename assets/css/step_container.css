@@ -1,12 +1,13 @@
 :root {
-  --main-side-padding: 1.5rem;
-  --separata: 1.1rem;
-  --img-size: 6rem;
+  --main-side-padding: 1rem;
+  --separata: 1rem;
+  --img-size: 5.5rem;
   --step-color: #D9EDF7;
   --btn-color: rgb(162, 212, 142);
   /* --pedido-item-color: #FCF8E3; */
   --pedido-item-color: #F2DEDE;
   --pedido-item-padding: 1rem;
+  --radius: 0.5rem;
 }
 
 body {
@@ -25,7 +26,7 @@ body {
   justify-content: space-around;
   align-content: center;
   text-align: center;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background-color: var(--step-color);
   padding: 1rem;
 }
@@ -93,20 +94,17 @@ body {
 }
 
 .pedido_item {
-  width: 32%;
-  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 33.32%;
+  border-radius: var(--radius);
   display: flex;
   flex-direction: column;
   padding: var(--pedido-item-padding);
   justify-content: space-between;
   text-align: center;
-
   background-color: var(--pedido-item-color);
-  /* border: 0.1rem solid var(--step-color);
-  border: 0.1rem solid var(--btn-color); */
   border: 0.1rem solid #FCF8E3;
   filter: brightness(100%);
-
 }
 
 /* Globals */
