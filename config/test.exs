@@ -13,7 +13,7 @@ config :logger, level: :warn
 config :clover, Clover.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: System.get_env("MYPASS"),
   database: "clover_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

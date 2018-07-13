@@ -32,10 +32,10 @@ const postLead = member => {
   })
 }
 
-export const convertLead = (lead_id) => {
+export const convertLead = (lead, pedido) => {
   return fetch('/api/convert_lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({lead_id})
+    body: JSON.stringify({lead, pedido})
   })
 }

@@ -52,7 +52,13 @@ defmodule CloverWeb.ZohoController do
   end
 
   def convert_lead(conn, params) do
-    lead_id = params["lead_id"]
+    %{
+      "lead" => %{"id" => lead_id},
+      "pedido" => %{"precio_total" => precio_total, "precio_unitario" => precio_unitario, "options" => options}
+    } = params
+
+    options = Map.put(options, "precio_unitario", "#{precio_unitario}")
+
     url = "https://www.zohoapis.com/crm/v2/Leads/#{lead_id}/actions/convert"
 
     payload =
@@ -60,13 +66,14 @@ defmodule CloverWeb.ZohoController do
         data: [
           %{
             overwrite: true,
-            notify_lead_owner: true,
+            notify_lead_owner: false,
             notify_new_entity_owner: false,
             Deals: %{
               Deal_Name: "Oportunidad potencial",
-              Closing_Date: "2019-02-18",
-              Amount: 500,
-              Stage: "Clasificación"
+              Closing_Date: Date.utc_today() |> Date.add(25) |> Date.to_string(),
+              Amount: precio_total,
+              Stage: "Clasificación",
+              Description: build_deal_desc(options)
             }
           }
         ]
@@ -92,5 +99,10 @@ defmodule CloverWeb.ZohoController do
 
   def get_headers do
     [{"Authorization", "Bearer " <> Clover.Zoho.get_access_token()}]
+  end
+
+  def build_deal_desc(options) do
+    Enum.map(options, fn {k, v} -> k <> ": " <> v end)
+    |> Enum.join("\n")
   end
 end

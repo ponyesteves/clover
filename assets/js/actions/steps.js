@@ -7,10 +7,12 @@ export const nextStep = () => (dispatch, getState) => {
   })
   const step = getState().step
   dispatch(push(step))
-  const lead_id = getState().lead.id
+  const lead = getState().lead,
+    pedido = getState().pedido
+
 
   if (step == 'five') {
-    convertLead(lead_id).then(resp => resp.json()).then(console.log)
+    convertLead(lead, pedido).then(resp => resp.json()).then(console.log)
   }
 }
 
