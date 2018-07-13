@@ -88,6 +88,12 @@ body {
   justify-content: space-between;
 }
 
+navs_container_summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .pedido_row {
   display: flex;
   flex-direction: row;
@@ -140,6 +146,7 @@ body {
 /* Globals */
 .full {
   width: 100%;
+  margin-bottom: 0.2rem;
 }
 
 .half {
