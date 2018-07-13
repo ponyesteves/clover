@@ -4,29 +4,32 @@ import { connect } from 'react-redux'
 import { nextStep, prevStep } from '../actions/steps'
 
 const PreNavs = props => {
-  if (props.step == 'one') {
-    return (
-      <div className="navs_container">
-        <a
-          className="btn btn-success full"
-          onClick={e => document.getElementById('submitFormStepOne').click()}
-        >
-          Siguiente
-        </a>
-      </div>
-    )
+  switch (props.step) {
+    case 'one':
+      return (
+        <div className="navs_container">
+          <a
+            className="btn btn-success full"
+            onClick={e => document.getElementById('submitFormStepOne').click()}
+          >
+            Siguiente
+          </a>
+        </div>
+      )
+    default:
+      return (
+        <div className="navs_container">
+          <a className="btn btn-success half" onClick={props.handlePrevStep}>
+            Anterior
+          </a>
+          <a className="btn btn-success half" onClick={props.handleNextStep}>
+            Siguiente
+          </a>
+        </div>
+      )
   }
-  return (
-    <div className="navs_container">
-      <a className="btn btn-success half" onClick={props.handlePrevStep}>
-        Anterior
-      </a>
-      <a className="btn btn-success half" onClick={props.handleNextStep}>
-        Siguiente
-      </a>
-    </div>
-    )
 }
+
 const mapDispatchToProps = {
   handleNextStep: nextStep,
   handlePrevStep: prevStep

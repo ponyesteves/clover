@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { StepTitle, SummaryItem } from '../components/misc'
 import { humanize } from '../lib/helpers'
 const PreSummary = props => (
-  <div>
+  <div className="summary_container">
     <StepTitle>Repasemos su pedido</StepTitle>
     <SummaryItem
       label="Producto"

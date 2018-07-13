@@ -108,6 +108,9 @@ body {
   border: 0.1rem solid #FCF8E3;
   filter: brightness(100%);
 }
+.summary_container .title {
+  margin-bottom: var(--separata);
+}
 
 .summary_item {
   /* border: 1px solid var(--pedido-item-color); */
@@ -128,7 +131,9 @@ body {
 .summary_item__value {
   /* border: 1px solid #fff; */
   /* color: #fff; */
-  margin-left: 5%;
+  padding-left: 5%;
+  text-align: left;
+  width: 10rem;
 }
 
 

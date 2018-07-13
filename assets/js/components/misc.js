@@ -2,7 +2,9 @@ import React from 'react'
 import NumberFormat from 'react-number-format'
 
 export const StepTitle = props => (
-  <span className="title">{props.children}</span>
+  <div className="title">
+    <span>{props.children}</span>
+  </div>
 )
 
 export const PedidoItem = props => (
