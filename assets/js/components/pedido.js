@@ -6,7 +6,7 @@ import { PedidoItem } from '../components/misc'
 const prePedido = props => (
   <div
     className="pedido_row"
-    style={{ display: (props.step == 'one' && 'none') || 'flex' }}
+    style={{ display: (['one', 'thanks'].includes(props.step) && 'none') || 'flex' }}
   >
     <PedidoItem label="Alumnos" value={props.cantidad} />
     <PedidoItem label="Precio" value={props.precio_unitario} prefix="$ " />

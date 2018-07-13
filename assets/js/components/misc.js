@@ -37,3 +37,7 @@ export const Btn = props => (
     {props.title}
   </a>
 )
+
+export const BigOK = () => (
+  <div className="thanks_container__big_ok" />
+)

@@ -43,6 +43,8 @@ const PreNavs = props => {
           />
         </div>
       )
+      case 'thanks':
+        return ""
     default:
       return (
         <div className="navs_container">
