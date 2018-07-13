@@ -43,13 +43,18 @@ defmodule Clover.Zoho do
          grant_type: "refresh_token"
        ]}
 
-    {:ok,  %HTTPoison.Response{body: body}} = HTTPoison.post(@api_base, payload)
+    {:ok, %HTTPoison.Response{body: body}} = HTTPoison.post(@api_base, payload)
+
     Poison.decode!(body)
     |> save_session
   end
 
   def get_access_token do
-    Agent.get(:zoho, fn state -> state end) || refresh_token && get_access_token
+    Agent.get(:zoho, fn state -> state end) || renew_access_token()
+  end
+
+  def renew_access_token do
+    refresh_token && get_access_token
   end
 
   def get_refresh_token do
@@ -62,8 +67,8 @@ defmodule Clover.Zoho do
   end
 
   def request_oauth_url do
-    "https://accounts.zoho.com/oauth/v2/auth?&scope=ZohoCRM.modules.ALL&client_id=#{
-      @client_id
-    }&response_type=code&access_type=offline&redirect_uri=#{@redirect_uri}&prompt=consent"
+    "https://accounts.zoho.com/oauth/v2/auth?&scope=ZohoCRM.modules.ALL&client_id=#{@client_id}&response_type=code&access_type=offline&redirect_uri=#{
+      @redirect_uri
+    }&prompt=consent"
   end
 end

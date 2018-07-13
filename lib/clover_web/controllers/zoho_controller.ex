@@ -1,3 +1,5 @@
+require IEx
+
 defmodule CloverWeb.ZohoController do
   use CloverWeb, :controller
 
@@ -11,9 +13,15 @@ defmodule CloverWeb.ZohoController do
   end
 
   def create_lead(conn, params) do
-    IO.inspect params
     url = "https://www.zohoapis.com/crm/v2/leads"
-    %{"colegio" => colegio, "representante" => representante, "cantidad" => cantidad, "celular" => celular } = params
+
+    %{
+      "colegio" => colegio,
+      "representante" => representante,
+      "cantidad" => cantidad,
+      "celular" => celular
+    } = params
+
     payload =
       %{
         data: [
@@ -30,11 +38,48 @@ defmodule CloverWeb.ZohoController do
       }
       |> Poison.encode!()
 
-    headers = [{"Authorization", "Bearer " <> Clover.Zoho.get_access_token()}]
-
-    case HTTPoison.post(url, payload, headers) do
-      {:ok, %HTTPoison.Response{body: body}} ->
+    case HTTPoison.post(url, payload, get_headers) do
+      {:ok, %HTTPoison.Response{body: body, status_code: 201}} ->
         json(conn, %{msg: body |> Poison.decode!()})
+
+      {:ok, %HTTPoison.Response{status_code: 401}} ->
+        Clover.Zoho.renew_access_token()
+        create_lead(conn, params)
+
+      {:error, msg} ->
+        json(conn, %{msg: msg})
+    end
+  end
+
+  def convert_lead(conn, params) do
+    lead_id = params["lead_id"]
+    url = "https://www.zohoapis.com/crm/v2/Leads/#{lead_id}/actions/convert"
+
+    payload =
+      %{
+        data: [
+          %{
+            overwrite: true,
+            notify_lead_owner: true,
+            notify_new_entity_owner: false,
+            Deals: %{
+              Deal_Name: "Oportunidad potencial",
+              Closing_Date: "2019-02-18",
+              Amount: 500,
+              Stage: "Clasificación"
+            }
+          }
+        ]
+      }
+      |> Poison.encode!()
+
+    case HTTPoison.post(url, payload, get_headers) do
+      {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
+        json(conn, %{msg: body |> Poison.decode!()})
+
+      {:ok, %HTTPoison.Response{status_code: 401}} ->
+        Clover.Zoho.renew_access_token()
+        create_lead(conn, params)
 
       {:error, msg} ->
         json(conn, %{msg: msg})
@@ -43,5 +88,9 @@ defmodule CloverWeb.ZohoController do
 
   defp create_designation(colegio, representante, cantidad) do
     "Para #{cantidad} Alumnos del Colegio #{colegio} por #{representante}"
+  end
+
+  def get_headers do
+    [{"Authorization", "Bearer " <> Clover.Zoho.get_access_token()}]
   end
 end

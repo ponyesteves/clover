@@ -1,5 +1,6 @@
 import { LEAD } from '../constants'
 const initLead = {
+  id: null,
   colegio: 'Santos Padres',
   cantidad: 35,
   representante: 'Pepito',

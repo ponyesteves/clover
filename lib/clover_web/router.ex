@@ -45,5 +45,7 @@ defmodule CloverWeb.Router do
   scope "/api", CloverWeb do
     pipe_through :api
     post("lead", ZohoController, :create_lead)
+    post("convert_lead", ZohoController, :convert_lead)
+
   end
 end
