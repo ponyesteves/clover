@@ -1,6 +1,6 @@
 import { STEP } from '../constants'
 
-export const step = (state = "one" , action) => {
+export const step = (state = 'one', action) => {
   switch (action.type) {
     case STEP.NEXT:
       return nextStep(state)
@@ -12,14 +12,14 @@ export const step = (state = "one" , action) => {
   }
 }
 
-const posible_steps = ["one","two","three", "four", "five"]
+const posible_steps = ['one', 'two', 'three', 'four', 'five', 'summary']
 
-const nextStep = (state) => {
-  const idx = posible_steps.findIndex(step => step == state )
+const nextStep = state => {
+  const idx = posible_steps.findIndex(step => step == state)
   return posible_steps[idx + 1] || state
 }
 
-const prevStep = (state) => {
-  const idx = posible_steps.findIndex(step => step == state )
+const prevStep = state => {
+  const idx = posible_steps.findIndex(step => step == state)
   return posible_steps[idx - 1] || state
 }

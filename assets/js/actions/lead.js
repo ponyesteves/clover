@@ -13,6 +13,13 @@ export const createLead = member => dispatch => {
 
 export const sumbitLead = () => (dispatch, getState) => {
   const lead = getState().lead
+
+  dispatch({
+    type: PEDIDO.CALCULAR_PRECIO,
+    changes: { lead }
+  })
+  return true
+
   postLead(lead)
     .then(resp => resp.json())
     .then(body => {
@@ -24,18 +31,18 @@ export const sumbitLead = () => (dispatch, getState) => {
     })
 }
 
+export const convertLead = (lead, pedido) => {
+  return fetch('/api/convert_lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ lead, pedido })
+  })
+}
+
 const postLead = member => {
   return fetch('/api/lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(member)
-  })
-}
-
-export const convertLead = (lead, pedido) => {
-  return fetch('/api/convert_lead', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({lead, pedido})
   })
 }

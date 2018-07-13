@@ -19,3 +19,10 @@ export const PedidoItem = props => (
     </div>
   </div>
 )
+
+export const SummaryItem = props => (
+  <div className="summary_item">
+    <div className="summary_item__label">{props.label}:</div>
+    <div className="summary_item__value">{props.value}</div>
+  </div>
+)

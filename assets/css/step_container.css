@@ -109,6 +109,29 @@ body {
   filter: brightness(100%);
 }
 
+.summary_item {
+  /* border: 1px solid var(--pedido-item-color); */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: var(--separata);
+  margin-left: 5%;
+  width: 90%;
+}
+
+.summary_item__label {
+  /* border: 1px solid #fff; */
+  /* color: #fff; */
+  width: 45%;
+  text-align: right;
+}
+.summary_item__value {
+  /* border: 1px solid #fff; */
+  /* color: #fff; */
+  margin-left: 5%;
+}
+
+
 /* Globals */
 .full {
   width: 100%;

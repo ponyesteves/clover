@@ -8,6 +8,7 @@ import { StepTwo } from './step_two'
 import { StepThree } from './step_three'
 import { StepFour } from './step_four'
 import { StepFive } from './step_five'
+import { Summary } from './summary'
 
 // Navs
 import { Navs } from '../components/navs'
@@ -22,7 +23,8 @@ const stepsAvailable = [
   { path: 'two', component: StepTwo },
   { path: 'three', component: StepThree },
   { path: 'four', component: StepFour },
-  { path: 'five', component: StepFive }
+  { path: 'five', component: StepFive },
+  { path: 'summary', component: Summary}
 ]
 
 const PreSteps = props => {
