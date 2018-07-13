@@ -54,7 +54,7 @@ defmodule CloverWeb.ZohoController do
   def convert_lead(conn, params) do
     %{
       "lead" => %{"id" => lead_id},
-      "pedido" => %{"precio_total" => precio_total, "precio_unitario" => precio_unitario, "options" => options}
+      "pedido" => %{"precio_total" => precio_total, "precio_unitario" => precio_unitario, "options" => options, "fase" => fase}
     } = params
 
     options = Map.put(options, "precio_unitario", "#{precio_unitario}")
@@ -67,12 +67,12 @@ defmodule CloverWeb.ZohoController do
           %{
             overwrite: true,
             notify_lead_owner: false,
-            notify_new_entity_owner: false,
+            notify_new_entity_owner: fase == "Negociación",
             Deals: %{
               Deal_Name: "Oportunidad potencial",
               Closing_Date: Date.utc_today() |> Date.add(25) |> Date.to_string(),
               Amount: precio_total,
-              Stage: "Clasificación",
+              Stage: fase,
               Description: build_deal_desc(options)
             }
           }

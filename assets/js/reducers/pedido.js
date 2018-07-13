@@ -6,7 +6,8 @@ const init_pedido = {
   lead: {},
   options: init_options,
   precio_unitario: 0,
-  precio_total: 0
+  precio_total: 0,
+  fase: ""
 }
 
 export const pedido = (state = init_pedido, action) => {

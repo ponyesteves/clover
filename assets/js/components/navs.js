@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Btn } from './misc'
 import { nextStep, prevStep } from '../actions/steps'
+import { convertLead } from '../actions/lead'
 
 const PreNavs = props => {
   switch (props.step) {
@@ -22,17 +23,17 @@ const PreNavs = props => {
         <div className="navs_container_summary">
           <Btn
             type="full"
-            handleClick={e => true}
+            handleClick={e => props.convertLead("Cerrado ganado")}
             title="Pagar con Mercado Pago (15% Descuento)"
           />
           <Btn
             type="full"
-            handleClick={e => true}
+            handleClick={e => props.convertLead("Seña")}
             title="Señar con Mercado Pago"
           />
           <Btn
             type="full"
-            handleClick={e => true}
+            handleClick={e => props.convertLead("Negociación")}
             title="Solicitar Atencion Comercial"
           />
           <Btn
@@ -62,7 +63,8 @@ const PreNavs = props => {
 
 const mapDispatchToProps = {
   handleNextStep: nextStep,
-  handlePrevStep: prevStep
+  handlePrevStep: prevStep,
+  convertLead: convertLead
 }
 const mapStateToProps = state => ({
   step: state.step

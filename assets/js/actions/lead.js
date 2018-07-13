@@ -18,7 +18,7 @@ export const sumbitLead = () => (dispatch, getState) => {
     type: PEDIDO.CALCULAR_PRECIO,
     changes: { lead }
   })
-  return true
+  // return true
 
   postLead(lead)
     .then(resp => resp.json())
@@ -31,11 +31,13 @@ export const sumbitLead = () => (dispatch, getState) => {
     })
 }
 
-export const convertLead = (lead, pedido) => {
+export const convertLead = (fase) => (dispatch, getState) => {
+  const lead = getState().lead,
+    pedido = getState().pedido
   return fetch('/api/convert_lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ lead, pedido })
+    body: JSON.stringify({ lead, pedido: {...pedido, fase} })
   })
 }
 
