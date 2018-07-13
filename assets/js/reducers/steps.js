@@ -1,6 +1,6 @@
 import { STEP } from '../constants'
 
-export const step = (state = 'thanks', action) => {
+export const step = (state = 'one', action) => {
   switch (action.type) {
     case STEP.NEXT:
       return nextStep(state)

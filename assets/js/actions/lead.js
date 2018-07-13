@@ -1,4 +1,5 @@
-import { LEAD, PEDIDO } from '../constants'
+import { LEAD, PEDIDO, STEP } from '../constants'
+import { push } from 'react-router-redux'
 
 export const createLead = member => dispatch => {
   dispatch({
@@ -31,15 +32,18 @@ export const sumbitLead = () => (dispatch, getState) => {
     })
 }
 
-export const convertLead = (fase) => (dispatch, getState) => {
+export const convertLead = fase => (dispatch, getState) => {
   const lead = getState().lead,
     pedido = getState().pedido
+  dispatch({
+    type: STEP.NEXT
+  })
+  dispatch(push(getState().step))
   fetch('/api/convert_lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ lead, pedido: {...pedido, fase} })
+    body: JSON.stringify({ lead, pedido: { ...pedido, fase } })
   })
-  dispatch(push(getState().step))
 }
 
 const postLead = member => {

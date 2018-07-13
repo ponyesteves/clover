@@ -5,6 +5,8 @@ const PreThanks = props => (
   <div className="thanks_container">
     <StepTitle>Gracias por solicitud</StepTitle>
     <BigOK />
+    <br />
+    <StepTitle>Pronto los contactaremos :)</StepTitle>
   </div>
 )
 
