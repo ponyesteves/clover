@@ -1,6 +1,6 @@
 import { LEAD, PEDIDO, STEP } from '../constants'
 import { push } from 'react-router-redux'
-
+import { go_and_pay } from './mercado_pago'
 export const createLead = member => dispatch => {
   dispatch({
     type: LEAD.CREATE,
@@ -43,6 +43,13 @@ export const convertLead = fase => (dispatch, getState) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ lead, pedido: { ...pedido, fase } })
+  }).then(resp => {
+    switch (fase) {
+      case 'Cerrado ganado':
+        return go_and_pay(`Colegio: ${lead.colegio}, pago 100%`, `Compra de ${lead.cantidad} unidades`, pedido.precio_total * 0.85)
+      case 'Seña':
+        return go_and_pay(`Colegio: ${lead.colegio}, pago seña 10%`, `Compra de ${lead.cantidad} unidades`, pedido.precio_total * 0.1)
+    }
   })
 }
 

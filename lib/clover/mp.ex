@@ -39,8 +39,8 @@ defmodule Clover.MercadoPago do
     payload = %{
       items: [
         %{
-          title: "Dummy Item",
-          description: "Multicolor Item",
+          title: title,
+          description: description,
           quantity: 1,
           currency_id: "ARS",
           unit_price: amount
