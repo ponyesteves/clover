@@ -40,6 +40,8 @@ export const Btn = props => (
 
 export const BigOK = () => (
   <div className="thanks_container__big_ok">
-    <img src="../images/check.png" />
+    {/* <img src="../images/check.png" /> */}
+    <img src="../images/check_white.png" />
+
   </div>
 )

@@ -3,11 +3,13 @@ import { RadioOptionRow } from '../components/option_row'
 import { connect } from 'react-redux'
 import { StepTitle } from '../components/misc'
 
-const PreStepTwo = () => (
+const PreStepTwoBis = () => (
   <div>
-    <StepTitle>¿ Que vas a elegir ?</StepTitle>
-    <RadioOptionRow options={['Buzo', 'Campera']} group_name="buzo_campera" />
-    <br />
+    <StepTitle>¿ Van a querer chomba o remera ?</StepTitle>
+    <RadioOptionRow
+      options={['Chomba', 'Remera', 'No']}
+      group_name="chomba_remera_nada"
+    />
   </div>
 )
 
@@ -15,7 +17,7 @@ const mapStateToProps = state => ({
   lead: state.lead
 })
 
-export const StepTwo = connect(
+export const StepTwoBis = connect(
   mapStateToProps,
   null
-)(PreStepTwo)
+)(PreStepTwoBis)

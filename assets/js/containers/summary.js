@@ -25,7 +25,7 @@ const PreSummary = props => (
 
 const build_producto = (buzo_campera, chomba_remera_nada) => {
   let ary = [humanize(buzo_campera)]
-  if (chomba_remera_nada != 'nada') {
+  if (chomba_remera_nada != 'no') {
     ary.push(chomba_remera_nada)
   }
   return ary.join(' y ')

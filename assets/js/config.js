@@ -13,7 +13,7 @@ export const buzo_campera = {
 }
 
 export const remera_chomba_nada = {
-  nada: 0,
+  no: 0,
   remera: 400,
   chomba: 600
 }
@@ -39,7 +39,7 @@ export const all = {...buzo_campera, ...remera_chomba_nada, ...capucha, ...color
 
 export const init_options = {
   buzo_campera: 'buzo',
-  chomba_remera_nada: 'nada',
+  chomba_remera_nada: 'no',
   colores: 'uno',
   capucha: 'lisa',
   bordados: 'hasta_tres'

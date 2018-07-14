@@ -12,7 +12,7 @@ export const step = (state = 'one', action) => {
   }
 }
 
-const posible_steps = ['one', 'two', 'three', 'four', 'five', 'summary', 'thanks']
+const posible_steps = ['one', 'two', 'two_bis', 'three', 'four', 'five', 'summary', 'thanks']
 
 const nextStep = state => {
   const idx = posible_steps.findIndex(step => step == state)

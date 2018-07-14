@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 // Steps
 import { StepOne } from './step_one'
 import { StepTwo } from './step_two'
+import { StepTwoBis } from './step_two_bis'
 import { StepThree } from './step_three'
 import { StepFour } from './step_four'
 import { StepFive } from './step_five'
@@ -22,6 +23,7 @@ import '../../css/step_container.css'
 const stepsAvailable = [
   { path: 'one', component: StepOne },
   { path: 'two', component: StepTwo },
+  { path: 'two_bis', component: StepTwoBis },
   { path: 'three', component: StepThree },
   { path: 'four', component: StepFour },
   { path: 'five', component: StepFive },
