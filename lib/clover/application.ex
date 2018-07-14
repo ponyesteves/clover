@@ -14,7 +14,9 @@ defmodule Clover.Application do
       supervisor(CloverWeb.Endpoint, []),
       # Start your own worker by calling: Clover.Worker.start_link(arg1, arg2, arg3)
       # worker(Clover.Worker, [arg1, arg2, arg3]),
-      worker(Clover.Zoho, [])
+      worker(Clover.Zoho, []),
+      worker(Clover.MercadoPago, [])
+
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

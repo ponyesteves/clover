@@ -46,6 +46,7 @@ defmodule CloverWeb.Router do
     pipe_through :api
     post("lead", ZohoController, :create_lead)
     post("convert_lead", ZohoController, :convert_lead)
+    post("payment_link", MercadoPagoController, :get_link)
 
   end
 end
