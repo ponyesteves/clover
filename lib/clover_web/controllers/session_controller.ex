@@ -12,7 +12,7 @@ defmodule CloverWeb.SessionController do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Bienvenido!")
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: user_path(conn, :index))
 
       {:error, _reason, conn} ->
         conn

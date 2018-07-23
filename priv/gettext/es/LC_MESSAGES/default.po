@@ -1,0 +1,61 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/clover_web/templates/session/new.html.eex:1
+msgid "login"
+msgstr "Ingresar a backoffice"
+
+#, elixir-format
+#: lib/clover_web/templates/session/new.html.eex:10
+#: lib/clover_web/templates/user/form.html.eex:15
+msgid "password"
+msgstr "Contraseña"
+
+#, elixir-format
+#: lib/clover_web/templates/session/new.html.eex:4
+#: lib/clover_web/templates/user/form.html.eex:9
+#: lib/clover_web/templates/user/index.html.eex:5
+msgid "username"
+msgstr "Nombre de usuario"
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:17
+msgid "delete"
+msgstr "Borrar"
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:16
+msgid "edit"
+msgstr "Editar"
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:15
+msgid "show"
+msgstr "Mostrar"
+
+#, elixir-format
+#: lib/clover_web/templates/user/form.html.eex:21
+msgid "submit"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/new.html.eex:5
+msgid "Back"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:24
+#: lib/clover_web/templates/user/new.html.eex:1
+msgid "new user"
+msgstr ""

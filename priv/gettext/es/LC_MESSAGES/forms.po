@@ -14,4 +14,4 @@ msgstr ""
 #, elixir-format
 #: lib/clover_web/templates/session/new.html.eex:16
 msgid "submit"
-msgstr ""
+msgstr "Enviar"

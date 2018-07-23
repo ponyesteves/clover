@@ -6,18 +6,18 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :username, class: "control-label" %>
+    <%= label f, gettext("username"), class: "control-label" %>
     <%= text_input f, :username, class: "form-control" %>
     <%= error_tag f, :username %>
   </div>
 
   <div class="form-group">
-    <%= label f, :password, class: "control-label" %>
+    <%= label f, gettext("password"), class: "control-label" %>
     <%= text_input f, :password, class: "form-control", type: "password" %>
     <%= error_tag f, :password %>
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit gettext("submit"), class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,0 +1,60 @@
+## This file is a PO Template file.
+##
+## `msgid`s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/session/new.html.eex:1
+msgid "login"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/session/new.html.eex:10
+#: lib/clover_web/templates/user/form.html.eex:15
+msgid "password"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/session/new.html.eex:4
+#: lib/clover_web/templates/user/form.html.eex:9
+#: lib/clover_web/templates/user/index.html.eex:5
+msgid "username"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:17
+msgid "delete"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:16
+msgid "edit"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:15
+msgid "show"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/form.html.eex:21
+msgid "submit"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/new.html.eex:5
+msgid "Back"
+msgstr ""
+
+#, elixir-format
+#: lib/clover_web/templates/user/index.html.eex:24
+#: lib/clover_web/templates/user/new.html.eex:1
+msgid "new user"
+msgstr ""
