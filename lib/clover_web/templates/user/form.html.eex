@@ -16,7 +16,16 @@
     <%= text_input f, :password, class: "form-control", type: "password" %>
     <%= error_tag f, :password %>
   </div>
-
+  <div class="form-group">
+    <%= label f, gettext("quantity"), class: "control-label" %>
+    <%= text_input f, :students_quantity, class: "form-control", type: "number" %>
+    <%= error_tag f, :students_quantity %>
+  </div>
+   <%= inputs_for f, :students, fn s -> %> 
+      <div class="col-md-12">
+        <%= text_input s, :alias, class: "form-control" %>
+      </div>
+    <% end %>
   <div class="form-group">
     <%= submit gettext("submit"), class: "btn btn-primary" %>
   </div>

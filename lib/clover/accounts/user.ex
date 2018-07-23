@@ -18,7 +18,8 @@ defmodule Clover.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:username, :password, :admin, :students_quantity])
-    |> validate_required([:username, :password, :admin])
+    |> cast_assoc(:students)
+    # |> validate_required([:username, :password, :admin])
     |> put_pass_hash
     |> create_students_placeholder
   end

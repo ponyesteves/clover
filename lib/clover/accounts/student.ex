@@ -16,6 +16,6 @@ defmodule Clover.Accounts.Student do
   def changeset(student, attrs) do
     student
     |> cast(attrs, [:alias, :talle])
-    |> validate_required([:alias, :talle])
+    # |> validate_required([:alias, :talle])
   end
 end
