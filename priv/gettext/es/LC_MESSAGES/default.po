@@ -14,7 +14,7 @@ msgstr ""
 #, elixir-format
 #: lib/clover_web/templates/session/new.html.eex:1
 msgid "login"
-msgstr "Ingresar a backoffice"
+msgstr "Mi Cuenta"
 
 #, elixir-format
 #: lib/clover_web/templates/session/new.html.eex:10
@@ -47,15 +47,15 @@ msgstr "Mostrar"
 #, elixir-format
 #: lib/clover_web/templates/user/form.html.eex:21
 msgid "submit"
-msgstr ""
+msgstr "Enviar"
 
 #, elixir-format
 #: lib/clover_web/templates/user/new.html.eex:5
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #, elixir-format
 #: lib/clover_web/templates/user/index.html.eex:24
 #: lib/clover_web/templates/user/new.html.eex:1
 msgid "new user"
-msgstr ""
+msgstr "Nuevo Colegio"

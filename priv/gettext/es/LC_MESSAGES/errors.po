@@ -89,4 +89,4 @@ msgstr ""
 #, elixir-format
 #: lib/clover_web/controllers/auth.ex:39
 msgid "only admin"
-msgstr "Solo usuarios autorizados"
+msgstr "Solo weClover"
