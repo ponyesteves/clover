@@ -40,7 +40,7 @@ defmodule CloverWeb.Router do
   scope "/", CloverWeb do
     # Use the default browser stack
     pipe_through([:browser])
-    get("login", SessionController, :new)
+    get("/login", SessionController, :new)
     resources("/sessions", SessionController, only: [:create])
     delete("/sessions/drop", SessionController, :drop)
   end

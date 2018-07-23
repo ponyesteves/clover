@@ -1,11 +1,7 @@
 defmodule CloverWeb.Auth do
-  import Plug.Conn
   import Phoenix.Controller
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
   import CloverWeb.Gettext, only: [dgettext: 2]
-
-
-  alias CloverWeb.Router.Helpers
 
   def login(conn, user) do
     conn

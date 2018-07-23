@@ -39,7 +39,7 @@ defmodule Clover.Zoho do
        [
          client_id: @client_id,
          client_secret: @client_secret,
-         refresh_token: get_refresh_token,
+         refresh_token: get_refresh_token(),
          grant_type: "refresh_token"
        ]}
 
@@ -54,7 +54,7 @@ defmodule Clover.Zoho do
   end
 
   def renew_access_token do
-    refresh_token && get_access_token
+    refresh_token() && get_access_token()
   end
 
   def get_refresh_token do

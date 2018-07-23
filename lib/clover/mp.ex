@@ -49,18 +49,17 @@ defmodule Clover.MercadoPago do
     }
 
     case HTTPoison.post(
-           ep_preferences(get_token),
+           ep_preferences(get_token()),
            payload |> Poison.encode!(),
            [{"Content-Type", "application/json"}]
          ) do
       {:ok, %HTTPoison.Response{status_code: sc}} when sc >= 400 ->
-        renew_token
+        renew_token()
         get_payment_link(title, description, amount)
 
       {:ok, %HTTPoison.Response{body: body}} ->
         Poison.decode!(body)
         |> Map.get("init_point")
-        |> IO.inspect()
 
       {:error, _} ->
         IO.inspect("ERROR")

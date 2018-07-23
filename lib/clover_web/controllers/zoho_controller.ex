@@ -38,7 +38,7 @@ defmodule CloverWeb.ZohoController do
       }
       |> Poison.encode!()
 
-    case HTTPoison.post(url, payload, get_headers) do
+    case HTTPoison.post(url, payload, get_headers()) do
       {:ok, %HTTPoison.Response{body: body, status_code: 201}} ->
         json(conn, %{msg: body |> Poison.decode!()})
 
@@ -80,7 +80,7 @@ defmodule CloverWeb.ZohoController do
       }
       |> Poison.encode!()
 
-    case HTTPoison.post(url, payload, get_headers) do
+    case HTTPoison.post(url, payload, get_headers()) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         json(conn, %{msg: body |> Poison.decode!()})
 
