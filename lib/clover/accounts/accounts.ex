@@ -35,7 +35,14 @@ defmodule Clover.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id), do: Repo.get!(User, id) |> Repo.preload(:students)
+
+  def find_user(name) do
+    User
+    |> where([u], like(u.username, ^name))
+    |> Repo.all()
+    |> Repo.preload(:students)
+  end
 
   @doc """
   Creates a user.

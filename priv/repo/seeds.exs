@@ -9,3 +9,6 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+
+Clover.Accounts.create_user(%{"username" => "admin", "password" => "1234", "admin" => true})
