@@ -12,19 +12,21 @@ defmodule CloverWeb.SessionController do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Bienvenido!")
-        |> redirect(to: user_path(conn, :index))
+        |> redirect(to: user_path(conn, :profile))
 
       {:error, _reason, conn} ->
         conn
-        |> put_flash(:error, "Invalid Credentials!")
+        |> put_flash(:error, "Colegio no autorizado!")
         |> render("new.html")
     end
   end
+
+
 
   def drop(conn, _) do
     conn
     |> Auth.logout()
     |> put_flash(:info, "Hasta la próxima!")
-    |> redirect(to: page_path(conn, :index))
+    |> redirect(to: session_path(conn, :new))
   end
 end

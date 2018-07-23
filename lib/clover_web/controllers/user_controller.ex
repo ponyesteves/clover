@@ -15,12 +15,20 @@ defmodule CloverWeb.UserController do
     render(conn, "new.html", changeset: changeset)
   end
 
+  def profile(conn, _params) do
+    user = conn.assigns[:current_user]
+    if user.admin, do: redirect(conn, to: user_path(conn, :index))
+
+    changeset = Accounts.change_user(user)
+    render(conn, "profile.html", user: user, changeset: changeset)
+  end
+
   def create(conn, %{"user" => user_params}) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
         |> Auth.login(user)
-        |> put_flash(:info, "User created successfully.")
+        |> put_flash(:info, "Colegio created! :)")
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -44,10 +52,23 @@ defmodule CloverWeb.UserController do
     case Accounts.update_user(user, user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User updated successfully.")
+        |> put_flash(:info, "Datos actualizados!")
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
+    end
+  end
+
+  def update_profile(conn, %{"user" => user_params}) do
+    user = conn.assigns[:current_user]
+
+    case Accounts.update_user(user, user_params) do
+      {:ok, user} ->
+        conn
+        |> put_flash(:info, "Sus Datos fueron actualizados!")
+        |> redirect(to: user_path(conn, :profile))
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "profile.html", user: user, changeset: changeset)
     end
   end
 

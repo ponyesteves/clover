@@ -27,8 +27,10 @@ defmodule CloverWeb.Router do
   end
 
 
-  scope "/dashboard", CloverWeb do
+  scope "/", CloverWeb do
     pipe_through([:browser, :auth])
+    get("/profile", UserController, :profile)
+    put("/profile", UserController, :update_profile)
   end
 
   scope "/bo", CloverWeb do
@@ -41,8 +43,8 @@ defmodule CloverWeb.Router do
     # Use the default browser stack
     pipe_through([:browser])
     get("/login", SessionController, :new)
+    delete("/logout", SessionController, :drop)
     resources("/sessions", SessionController, only: [:create])
-    delete("/sessions/drop", SessionController, :drop)
   end
 
   scope "/app", CloverWeb do

@@ -19,17 +19,25 @@ defmodule Clover.Accounts.User do
     user
     |> cast(attrs, [:username, :password, :admin, :students_quantity])
     |> cast_assoc(:students)
-    # |> validate_required([:username, :password, :admin])
+    |> my_custom_validation
     |> put_pass_hash
     |> create_students_placeholder
   end
-  
+
+  defp my_custom_validation(changeset) do
+    case get_field(changeset, :action) do
+      :insert -> validate_required(changeset, [:password, :admin])
+      _ -> changeset
+    end
+
+  end
+
   defp create_students_placeholder(changeset) do
     case get_field(changeset,:students_quantity) do
       0 -> changeset
-      qty ->  change(changeset, %{students: 1..qty |> Enum.map(fn _ -> %Student{} end)}) 
+      qty ->  change(changeset, %{students: 1..qty |> Enum.map(fn _ -> %Student{} end)})
     end
-   
+
   end
 
   defp put_pass_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
