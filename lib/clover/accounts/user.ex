@@ -7,6 +7,7 @@ defmodule Clover.Accounts.User do
     field :username, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+    field :admin, :boolean
 
     timestamps()
   end
@@ -14,8 +15,8 @@ defmodule Clover.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:username, :password])
-    |> validate_required([:username, :password])
+    |> cast(attrs, [:username, :password, :admin])
+    |> validate_required([:username, :password, :admin])
     |> put_pass_hash
   end
 

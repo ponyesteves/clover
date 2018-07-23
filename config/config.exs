@@ -5,6 +5,7 @@
 # is restricted to this project.
 use Mix.Config
 
+
 # General application configuration
 config :clover,
   ecto_repos: [Clover.Repo]
@@ -32,6 +33,8 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Import environment specific config. This must remain at the bottom
+config :clover, CloverWeb.Gettext, default_locale: "es"
+
+  # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
