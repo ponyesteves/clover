@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><%= s.index + 1%>.</div>
         </div>
-        <%= text_input s, :alias, class: "form-control" %>
+        <%= text_input s, :alias, class: "form-control", onclick: ~s(() => alert("HOLA"))]%>
       </div>
       <div class="student_row__attr">
         <%= text_input s, :talle, class: "form-control" %>
@@ -34,3 +34,9 @@
 
   <span><%= link "Salir", to: session_path(@conn, :drop), method: :delete %></span>
 <% end %>
+<div id="calculator" />
+<script>
+  function handleClick(e) {
+    window.row_id = e.target.value
+  }
+</script>

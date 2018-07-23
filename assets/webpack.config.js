@@ -5,7 +5,8 @@ const webpack = require("webpack"),
 module.exports = {
   mode: "development",
   entry: {
-    app: "./js/app.js"
+    app: "./js/app.js",
+    calculator: "./js/calculator.js"
   },
   output: {
     path: __dirname + "/../priv/static",

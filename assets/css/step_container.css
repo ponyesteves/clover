@@ -164,6 +164,21 @@ navs_container_summary {
   width: 10rem;
 }
 
+.student_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
+}
+
+.student_row__attr {
+  width: 48%;
+}
+
+.student_row__header {
+  font-size: 2rem;
+}
+
 /* Globals */
 .full {
   width: 100%;

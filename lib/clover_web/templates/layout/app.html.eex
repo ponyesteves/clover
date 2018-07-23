@@ -26,10 +26,11 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
-        <div id="my-react-app"> </div>
+        <div id="my-react-app" />
         <%= render @view_module, @view_template, assigns %>
       </main>
 
     </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/calculator.js") %>"></script>
   </body>
 </html>
