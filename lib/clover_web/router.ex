@@ -55,7 +55,7 @@ defmodule CloverWeb.Router do
     get("/oauth2callback", ZohoController, :index)
   end
 
-  scope "/steps", CloverWeb do
+  scope "/app/steps", CloverWeb do
     # Use the default browser stack
     pipe_through(:browser)
     get("/*path", PageController, :index)

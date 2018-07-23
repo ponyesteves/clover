@@ -13,8 +13,8 @@ const Form = props => (
   <Provider store={store}>
     <Router history={myHistory}>
       <Switch>
-        <Redirect exact path="/" to="/steps/one" />
-        <Route path="/steps" component={Steps} />
+        <Redirect exact path="/app" to="/app/steps/one" />
+        <Route path="/app/steps" component={Steps} />
       </Switch>
     </Router>
   </Provider>
