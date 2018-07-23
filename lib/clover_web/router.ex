@@ -21,31 +21,32 @@ defmodule CloverWeb.Router do
     plug(CloverWeb.Guardian.AuthAccessPipeline)
   end
 
-  pipeline :main do
-    plug(:put_layout, {CloverWeb.LayoutView, "main.html"})
+  pipeline :presup do
+    plug(:put_layout, {CloverWeb.LayoutView, "presup.html"})
   end
 
 
   scope "/dashboard" do
-    pipe_through([:browser, :auth, :main])
+    pipe_through([:browser, :auth])
   end
 
   scope "/bo" do
-    pipe_through([:browser, :auth, :main, :backoffice])
+    pipe_through([:browser, :auth, :backoffice])
     resources("/users", UserController, only: [:index, :show, :delete])
   end
 
   # Public
   scope "/", CloverWeb do
     # Use the default browser stack
-    pipe_through([:browser, :main])
+    pipe_through([:browser])
     get("/", PageController, :index)
     resources("/sessions", SessionController, only: [:new, :create])
     delete("/sessions/drop", SessionController, :drop)
   end
+
   scope "/app", CloverWeb do
     # Use the default browser stack
-    pipe_through(:browser)
+    pipe_through([:browser, :presup])
     get("/", PageController, :index)
     resources("/users", UserController, only: [:new, :create, :edit, :update])
     resources("/sessions", SessionController, only: [:new, :create])
@@ -57,7 +58,7 @@ defmodule CloverWeb.Router do
 
   scope "/app/steps", CloverWeb do
     # Use the default browser stack
-    pipe_through(:browser)
+    pipe_through([:browser, :presup])
     get("/*path", PageController, :index)
   end
 

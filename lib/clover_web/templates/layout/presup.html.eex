@@ -9,27 +9,12 @@
 
     <title>WeClover</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/styles.css") %>">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-          <%# logo %>
-          </div>
-        </div>
-      </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <main role="main">
-        <div id="my-react-app"> </div>
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div> <!-- /container -->
+    <div id="my-react-app" />
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
