@@ -180,10 +180,17 @@ navs_container_summary {
   width: 70%;
   z-index: 9999;
 }
+.calculator_column{
+  width: 50%;
+}
+.calculator_column img{
+  width: 100%;
+}
+
 
 .calculator_row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
 }
 
