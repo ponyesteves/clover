@@ -14,7 +14,7 @@
       <td class="text-right">
         <span><%= link gettext("show"), to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
         <span><%= link gettext("edit"), to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link gettext("delete"), to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link gettext("delete"), to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Esta seguro?"], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>

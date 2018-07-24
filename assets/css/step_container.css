@@ -175,7 +175,7 @@ navs_container_summary {
 }
 
 #calculator {
-  position: absolute;
+  position: fixed;
   top: 5%;
   left: 0%;
   margin: 0px;
@@ -185,13 +185,8 @@ navs_container_summary {
 }
 @media (min-width: 800px) {
   #calculator {
-    position: absolute;
-    top: 5%;
     left: 20%;
     width: 60%;
-    margin: 0px;
-    /* left: 15%; */
-    z-index: 9999;
   }
 
 }
