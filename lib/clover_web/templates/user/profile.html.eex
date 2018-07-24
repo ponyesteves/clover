@@ -1,3 +1,8 @@
+<div class="profile_header">
+  <h1><%= humanize(@current_user.username) %></h1>
+  <h4>Por favor, completen el siguiente formulario</h4>
+  <h4>Indicando alias y luego haciendo click en el campo talle </h4>
+</div>
 <%= form_for @changeset, user_path(@conn, :update_profile), fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
@@ -20,7 +25,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><%= s.index + 1%>. </div>
         </div>
-        <%= text_input s, :alias, class: "form-control", autocomplete: "off" %>
+        <%= text_input s, :alias, class: "form-control", autocomplete: "off", readonly: f.data.closed %>
       </div>
       <div class="student_row__attr">
         <%= text_input s, :talle, class: "talle form-control", autocomplete: "off", data: [idx: s.index], readonly: true  %>
@@ -28,10 +33,13 @@
     </div>
     <% end %>
     <div class="student_row">
-      <%= submit "Guardar Datos!", class: "btn btn-primary", style: "width:100%" %>
+      <%= submit "Confirmar Datos!", class: "btn btn-primary", style: "width:100%" %>
     </div>
   </div>
 
-  <span><%= link "Salir", to: session_path(@conn, :drop), method: :delete %></span>
+  <span><%= link "Salir", to: session_path(@conn, :drop), class: "btn btn-warning" %></span>
+  <%= unless f.data.closed do %>
+    <div id="calculator" />
+    <script src="<%= static_path(@conn, "/js/calculator.js") %>"></script>
+  <% end %>
 <% end %>
-<div id="calculator" />

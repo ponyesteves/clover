@@ -27,7 +27,7 @@ msgstr "Contraseña"
 #: lib/clover_web/templates/user/form.html.eex:9
 #: lib/clover_web/templates/user/index.html.eex:5
 msgid "username"
-msgstr "Nombre de usuario"
+msgstr "Colegio"
 
 #, elixir-format
 #: lib/clover_web/templates/user/index.html.eex:17

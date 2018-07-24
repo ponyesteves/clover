@@ -9,7 +9,9 @@ defmodule Clover.Accounts.User do
     field :students_quantity, :integer, virtual: true, default: 0
     field :password_hash, :string
     field :admin, :boolean, default: false
-    has_many :students, Student
+    field :closed, :boolean, default: false
+
+    has_many :students, Student, on_replace: :delete
 
     timestamps()
   end
@@ -17,7 +19,7 @@ defmodule Clover.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:username, :password, :admin, :students_quantity])
+    |> cast(attrs, [:username, :password, :admin, :students_quantity, :closed])
     |> cast_assoc(:students)
     |> my_custom_validation
     |> put_pass_hash
@@ -34,8 +36,22 @@ defmodule Clover.Accounts.User do
 
   defp create_students_placeholder(changeset) do
     case get_field(changeset,:students_quantity) do
-      0 -> changeset
-      qty ->  change(changeset, %{students: 1..qty |> Enum.map(fn _ -> %Student{} end)})
+      0 -> change(changeset, %{students_quantity: get_field(changeset, :students) |> length })
+      qty ->
+        case get_field(changeset, :action) do
+          :insert -> change(changeset, %{students: 1..qty |> Enum.map(fn _ -> %Student{} end)})
+          _ ->
+            students = get_field(changeset, :students)
+            diff = qty - length(students)
+            IO.inspect "this is  -------    #{diff}"
+            new_students = if(diff > 0) do
+              students ++ (1..diff |> Enum.map(fn _ -> %Student{} end))
+            else
+              students |> Enum.slice(0..(diff-1))
+            end
+            change(changeset, %{students: new_students})
+        end
+
     end
 
   end

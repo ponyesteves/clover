@@ -205,7 +205,6 @@ navs_container_summary {
 
 }
 
-
 .calculator_row {
   display: flex;
   flex-direction: row;
@@ -226,6 +225,15 @@ navs_container_summary {
 .student_row__header {
   font-size: 2rem;
 }
+
+.profile_header{
+  text-align: center;
+}
+.profile_header h4{
+  color: var(--step-color);
+  filter: brightness(80%)
+}
+
 
 /* Globals */
 .full {

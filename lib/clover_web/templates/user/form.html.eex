@@ -7,26 +7,45 @@
 
   <div class="form-group">
     <%= label f, gettext("username"), class: "control-label" %>
-    <%= text_input f, :username, class: "form-control" %>
+    <%= text_input f, :username, class: "form-control", autocomplete: "off" %>
     <%= error_tag f, :username %>
   </div>
 
-  <div class="form-group">
+  <div id="pwd_toggle" class="form-group">
+    <%= label f, "Cambiar clave" %>
+    <%= checkbox f, :toggle_pwd %>
+  </div>
+
+  <div id="pwd" class="form-group">
     <%= label f, gettext("password"), class: "control-label" %>
-    <%= text_input f, :password, class: "form-control", type: "password" %>
+    <%= text_input f, :password, class: "form-control", type: "password", autocomplete: "off" %>
     <%= error_tag f, :password %>
   </div>
+
   <div class="form-group">
-    <%= label f, gettext("quantity"), class: "control-label" %>
+    <%= label f, "Cantidad de Alumnos", class: "control-label" %>
     <%= text_input f, :students_quantity, class: "form-control", type: "number" %>
     <%= error_tag f, :students_quantity %>
   </div>
-   <%= inputs_for f, :students, fn s -> %> 
-      <div class="col-md-12">
-        <%= text_input s, :alias, class: "form-control" %>
-      </div>
-    <% end %>
+
+  <div id="status" class="form-group">
+    <%= label f, "Cerrado" %>
+    <%= checkbox f, :closed %>
+  </div>
+
   <div class="form-group">
     <%= submit gettext("submit"), class: "btn btn-primary" %>
   </div>
+<script>
+const pwd_field = document.getElementById("pwd"),
+  pwd_toggle_div = document.getElementById("pwd_toggle"),
+  pwd_toggle = document.getElementById("user_toggle_pwd")
+  <%= if f.data.username do %>
+    pwd.style.display = 'none'
+  <% else %>
+    pwd_toggle_div.style.display = 'none'
+  <% end %>
+  user_toggle_pwd.addEventListener('change', (ev) => pwd.style.display = ev.target.checked ? 'block': 'none')
+</script>
+
 <% end %>

@@ -27,9 +27,8 @@ defmodule CloverWeb.UserController do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
-        |> Auth.login(user)
         |> put_flash(:info, "Colegio created! :)")
-        |> redirect(to: user_path(conn, :show, user))
+        |> redirect(to: user_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -53,7 +52,7 @@ defmodule CloverWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "Datos actualizados!")
-        |> redirect(to: user_path(conn, :show, user))
+        |> redirect(to: user_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
     end

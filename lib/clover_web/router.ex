@@ -44,7 +44,7 @@ defmodule CloverWeb.Router do
     pipe_through([:browser])
     get("/", Redirect, to: "/app")
     get("/login", SessionController, :new)
-    delete("/logout", SessionController, :drop)
+    get("/logout", SessionController, :drop)
     resources("/sessions", SessionController, only: [:create])
   end
 
