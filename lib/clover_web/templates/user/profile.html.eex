@@ -28,7 +28,7 @@
     </div>
     <% end %>
     <div class="student_row">
-      <%= submit gettext("submit"), class: "btn btn-primary", style: "width:100%" %>
+      <%= submit "Guardar Datos!", class: "btn btn-primary", style: "width:100%" %>
     </div>
   </div>
 

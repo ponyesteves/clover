@@ -88,7 +88,7 @@ class Calculator extends React.Component {
                 onChange={this.updateStateOf.bind(this, 'largo')}
                 className="form-control"
                 aria-describedby="largoHelp"
-                placeholder="Medida en centimetros"
+                placeholder="centimetros"
               />
               <small id="largoHelp" className="form-text text-muted">
                 <p>
@@ -104,7 +104,7 @@ class Calculator extends React.Component {
                 onChange={this.updateStateOf.bind(this, 'sisa')}
                 className="form-control"
                 aria-describedby="sisaHelp"
-                placeholder="Medida en centimetros"
+                placeholder="centimetros"
               />
               <small id="sisaHelp" className="form-text text-muted">
                 <p>

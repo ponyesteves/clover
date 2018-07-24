@@ -166,9 +166,10 @@ navs_container_summary {
 .calculator_container{
   border: solid 1px rgb(162, 212, 142);
   border-radius: var(--radius);
-  padding: 2rem;
-  margin-left: 15%;
-  width: 70%;
+  margin: 1rem;
+  padding: 1rem;
+  /* margin-left: 15%; */
+  /* width: 70%; */
   background-color: var(--step-color);
 
 }
@@ -176,15 +177,32 @@ navs_container_summary {
 #calculator {
   position: absolute;
   top: 5%;
-  left: 15%;
-  width: 70%;
+  left: 0%;
+  margin: 0px;
+  /* left: 15%; */
+  width: 100%;
   z-index: 9999;
 }
+@media (min-width: 800px) {
+  #calculator {
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    width: 60%;
+    margin: 0px;
+    /* left: 15%; */
+    z-index: 9999;
+  }
+
+}
+
 .calculator_column{
   width: 50%;
 }
 .calculator_column img{
   width: 100%;
+  margin-top: 2rem;
+
 }
 
 
