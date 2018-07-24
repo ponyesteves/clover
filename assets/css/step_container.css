@@ -163,6 +163,29 @@ navs_container_summary {
   margin-left: 1rem;
   width: 10rem;
 }
+.calculator_container{
+  border: solid 1px rgb(162, 212, 142);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-left: 15%;
+  width: 70%;
+  background-color: var(--step-color);
+
+}
+
+#calculator {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  width: 70%;
+  z-index: 9999;
+}
+
+.calculator_row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 .student_row {
   display: flex;

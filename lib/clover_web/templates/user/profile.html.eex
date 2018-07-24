@@ -20,10 +20,10 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><%= s.index + 1%>.</div>
         </div>
-        <%= text_input s, :alias, class: "form-control"%>
+        <%= text_input s, :alias, class: "form-control", autocomplete: "off" %>
       </div>
       <div class="student_row__attr">
-        <%= text_input s, :talle, class: "talle form-control" %>
+        <%= text_input s, :talle, class: "talle form-control", autocomplete: "off" %>
       </div>
     </div>
     <% end %>
