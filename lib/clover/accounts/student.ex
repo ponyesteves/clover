@@ -6,7 +6,7 @@ defmodule Clover.Accounts.Student do
   schema "students" do
     field :alias, :string
     field :talle, :string
-    
+
     belongs_to :user, User
 
     timestamps()
@@ -15,7 +15,8 @@ defmodule Clover.Accounts.Student do
   @doc false
   def changeset(student, attrs) do
     student
-    |> cast(attrs, [:alias, :talle])
+    |> cast(attrs, [:alias, :talle, :user_id])
+
     # |> validate_required([:alias, :talle])
   end
 end

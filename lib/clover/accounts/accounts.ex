@@ -18,7 +18,9 @@ defmodule Clover.Accounts do
 
   """
   def list_users do
-    Repo.all(User)
+    User
+    |> where([u], is_nil(u.deleted_at))
+    |> Repo.all()
   end
 
   @doc """

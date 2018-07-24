@@ -10,6 +10,7 @@ defmodule Clover.Accounts.User do
     field :password_hash, :string
     field :admin, :boolean, default: false
     field :closed, :boolean, default: false
+    field :deleted_at, :date, default: nil
 
     has_many :students, Student, on_replace: :delete
 
@@ -19,11 +20,12 @@ defmodule Clover.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:username, :password, :admin, :students_quantity, :closed])
+    |> cast(attrs, [:username, :password, :admin, :students_quantity, :closed, :deleted_at])
     |> cast_assoc(:students)
     |> my_custom_validation
     |> put_pass_hash
     |> create_students_placeholder
+    |> unique_constraint(:username)
   end
 
   defp my_custom_validation(changeset) do
