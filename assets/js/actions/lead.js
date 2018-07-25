@@ -35,9 +35,16 @@ export const sumbitLead = () => (dispatch, getState) => {
 export const convertLead = fase => (dispatch, getState) => {
   const lead = getState().lead,
     pedido = getState().pedido
+
   dispatch({
     type: STEP.NEXT
   })
+
+  dispatch({
+    type: PEDIDO.SET_FASE,
+    fase: fase
+  })
+
   dispatch(push(getState().step))
   fetch('/api/convert_lead', {
     method: 'POST',

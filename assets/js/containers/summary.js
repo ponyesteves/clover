@@ -13,8 +13,8 @@ const PreSummary = props => (
       )}
     />
     <SummaryItem label="Colores" value={humanize(props.options.colores)} />
-    <SummaryItem label="Capucha" value="Corderito" />
-    <SummaryItem label="Bordados" value="Hasta Seis" />
+    <SummaryItem label="Capucha" value={humanize(props.options.capucha)} />
+    <SummaryItem label="Bordados" value={humanize(props.options.bordados)} />
     <br/>
     <SummaryItem label="Para" value={"Colegio " + props.lead.colegio} />
     <SummaryItem label="Contacto" value={props.lead.representante} />

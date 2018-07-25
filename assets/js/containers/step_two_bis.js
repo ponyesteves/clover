@@ -7,7 +7,13 @@ const PreStepTwoBis = () => (
   <div>
     <StepTitle>¿ Van a querer chomba o remera ?</StepTitle>
     <RadioOptionRow
-      options={['Chomba', 'Remera', 'No']}
+      no_image={true}
+      options={['No']}
+      group_name="chomba_remera_nada"
+    />
+    <RadioOptionRow
+      prefix="Sí - "
+      options={['Chomba', 'Remera']}
       group_name="chomba_remera_nada"
     />
   </div>

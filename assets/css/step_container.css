@@ -62,7 +62,7 @@ body {
     height: 15rem;
     margin-bottom: 0.5rem;
   }
-} 
+}
 
 .option input[type='radio'] {
   margin-top: 10px;
@@ -168,6 +168,22 @@ navs_container_summary {
   margin-left: 1rem;
   width: 10rem;
 }
+
+.thanks_container__big_wait {
+  margin-top: 3rem;
+  border: 3px solid var(--btn-color);
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  background-color: var(--btn-color);
+}
+
+.thanks_container__big_wait > img {
+  margin-top: 2.4rem;
+  margin-left: 0.3rem;
+  width: 10rem;
+}
+
 .calculator_container {
   border: solid 1px rgb(162, 212, 142);
   border-radius: var(--radius);
@@ -229,6 +245,10 @@ navs_container_summary {
 .profile_header h4 {
   color: var(--step-color);
   filter: brightness(80%);
+}
+
+#dots {
+  font-size: 4rem;
 }
 
 /* Globals */

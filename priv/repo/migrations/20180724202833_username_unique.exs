@@ -4,4 +4,5 @@ defmodule Clover.Repo.Migrations.UsernameUnique do
   def change do
     create unique_index(:users, [:username])
   end
+
 end

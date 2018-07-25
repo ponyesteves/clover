@@ -12,6 +12,8 @@ export const RadioOptionRow = props => {
             label={option}
             group_name={props.group_name}
             option_value={option.toLowerCase()}
+            no_image={props.no_image}
+            prefix={props.prefix}
           />
         )
       })}
@@ -23,8 +25,8 @@ const PreRadioOptionItem = props => {
   return (
     <div className="option">
       <label htmlFor={props.label}>
-        <div>{humanize(props.label)}</div>
-        <img htmlFor={props.label} src={`../../images/${props.option_value}.png`} />
+        <div>{props.prefix}{humanize(props.label)}</div>
+        {props.no_image || <img htmlFor={props.label} src={`../../images/${props.option_value}.png`} />}
       </label>
       <input
         id={props.label}

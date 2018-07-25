@@ -13,5 +13,6 @@ export const STEP = {
 }
 
 export const PEDIDO = {
-  CALCULAR_PRECIO: 'CALCULAR_PRECIO'
+  CALCULAR_PRECIO: 'CALCULAR_PRECIO',
+  SET_FASE: "SET_FASE"
 }

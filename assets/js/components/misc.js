@@ -42,6 +42,16 @@ export const BigOK = () => (
   <div className="thanks_container__big_ok">
     {/* <img src="../images/check.png" /> */}
     <img src="../../images/check_white.png" />
+    {/* <img src="../../images/wait2.gif" /> */}
+
+  </div>
+)
+
+export const BigWait = () => (
+  <div className="thanks_container__big_wait">
+    {/* <img src="../images/check.png" /> */}
+    {/* <img src="../../images/check_white.png" /> */}
+    <img src="../../images/wait2.gif" />
 
   </div>
 )

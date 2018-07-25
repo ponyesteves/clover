@@ -14,6 +14,8 @@ export const pedido = (state = init_pedido, action) => {
   switch (action.type) {
     case PEDIDO.CALCULAR_PRECIO:
       return calcularPrecio({ ...state, ...action.changes })
+    case PEDIDO.SET_FASE:
+      return { ...state, fase: action.fase }
     default:
       return state
   }
