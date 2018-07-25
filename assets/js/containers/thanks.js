@@ -15,13 +15,9 @@ const wait = () => (
 const thanks = () => (
   <div className="thanks_container">
     <StepTitle>Gracias por solicitud</StepTitle>
-    <StepTitle>
-      Si ha elegido una opión de pago aguarde unos instantes...
-    </StepTitle>
-
     <BigOK />
     <br />
-    <StepTitle>Pronto los contactaremos :)</StepTitle>
+    <StepTitle>Pronto los contactaremos :-)</StepTitle>
   </div>
 )
 

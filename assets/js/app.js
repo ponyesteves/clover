@@ -9,6 +9,10 @@ import { store, myHistory } from './store'
 import { Steps } from './containers/steps'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
 
+if(/steps\/(?!one)/.test(window.location.pathname)){
+  window.location.href = "/"
+}
+
 const Form = props => (
   <Provider store={store}>
     <Router history={myHistory}>
