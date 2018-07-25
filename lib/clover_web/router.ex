@@ -46,6 +46,9 @@ defmodule CloverWeb.Router do
     get("/login", SessionController, :new)
     get("/logout", SessionController, :drop)
     resources("/sessions", SessionController, only: [:create])
+    get("/auth", ZohoController, :oauth)
+    get("/oauth2callback", ZohoController, :index)
+
   end
 
   scope "/app", CloverWeb do
@@ -53,9 +56,7 @@ defmodule CloverWeb.Router do
     pipe_through([:browser, :presup])
     get("/", PageController, :index)
     # If refresh_token is no longer valid got to /auth to get a new one
-    get("/auth", ZohoController, :oauth)
-    get("/oauth2callback", ZohoController, :index)
-  end
+   end
 
   scope "/app/steps", CloverWeb do
     # Use the default browser stack

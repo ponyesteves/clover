@@ -1,10 +1,10 @@
 import { LEAD } from '../constants'
 const initLead = {
   id: null,
-  colegio: 'Santos Padres',
-  cantidad: 35,
-  representante: 'Pepito',
-  celular: '11-2234-9046'
+  colegio: '',
+  cantidad: 0,
+  representante: '',
+  celular: ''
 }
 export const lead = (state = initLead, action) => {
   switch (action.type) {
