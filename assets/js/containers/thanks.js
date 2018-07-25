@@ -14,7 +14,7 @@ const wait = () => (
 )
 const thanks = () => (
   <div className="thanks_container">
-    <StepTitle>Gracias por solicitud</StepTitle>
+    <StepTitle>¡Gracias!</StepTitle>
     <BigOK />
     <br />
     <StepTitle>Pronto los contactaremos :-)</StepTitle>
