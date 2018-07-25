@@ -11,4 +11,4 @@
 # and so on) as they will fail if something goes wrong.
 
 
-Clover.Accounts.create_user(%{"username" => "admin", "password" => "1234", "admin" => true})
+Clover.Accounts.create_user(%{"username" => "weclover", "password" => "clover1234", "admin" => true})
