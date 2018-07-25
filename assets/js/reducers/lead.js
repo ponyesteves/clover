@@ -2,7 +2,7 @@ import { LEAD } from '../constants'
 const initLead = {
   id: null,
   colegio: '',
-  cantidad: 0,
+  cantidad: '',
   representante: '',
   celular: ''
 }
