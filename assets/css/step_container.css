@@ -2,10 +2,10 @@
   --main-side-padding: 1rem;
   --separata: 1rem;
   --img-size: 6rem;
-  --step-color: #D9EDF7;
+  --step-color: #d9edf7;
   --btn-color: rgb(162, 212, 142);
   /* --pedido-item-color: #FCF8E3; */
-  --pedido-item-color: #F2DEDE;
+  --pedido-item-color: #f2dede;
   --pedido-item-padding: 1rem;
   --radius: 0.5rem;
   --text-sixe: 0.9rem;
@@ -32,7 +32,6 @@ body {
   padding: 1rem;
 }
 
-
 .step_container .option_row {
   display: flex;
   flex-direction: row;
@@ -58,7 +57,14 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.option input[type="radio"]{
+@media (min-width: 800px) {
+  .option img {
+    height: 15rem;
+    margin-bottom: 0.5rem;
+  }
+} 
+
+.option input[type='radio'] {
   margin-top: 10px;
   height: 30px;
   width: 30px;
@@ -71,11 +77,11 @@ body {
 .btn.btn-success {
   color: #fff !important;
   background-color: var(--btn-color) !important;
-  border-color:  var(--btn-color) !important;
+  border-color: var(--btn-color) !important;
 }
 
 .btn.btn-success:hover {
-  filter: brightness(90%)
+  filter: brightness(90%);
 }
 
 .btn.btn-success:not(:disabled):not(.disabled):active {
@@ -111,7 +117,7 @@ navs_container_summary {
   justify-content: space-between;
   text-align: center;
   background-color: var(--pedido-item-color);
-  border: 0.1rem solid #FCF8E3;
+  border: 0.1rem solid #fcf8e3;
   filter: brightness(100%);
 }
 .summary_container .title {
@@ -143,7 +149,6 @@ navs_container_summary {
 }
 
 .thanks_container {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,7 +168,7 @@ navs_container_summary {
   margin-left: 1rem;
   width: 10rem;
 }
-.calculator_container{
+.calculator_container {
   border: solid 1px rgb(162, 212, 142);
   border-radius: var(--radius);
   margin: 1rem;
@@ -171,7 +176,6 @@ navs_container_summary {
   /* margin-left: 15%; */
   /* width: 70%; */
   background-color: var(--step-color);
-
 }
 
 #calculator {
@@ -188,16 +192,14 @@ navs_container_summary {
     left: 20%;
     width: 60%;
   }
-
 }
 
-.calculator_column{
+.calculator_column {
   width: 50%;
 }
-.calculator_column img{
+.calculator_column img {
   width: 100%;
   margin-top: 2rem;
-
 }
 
 .calculator_row {
@@ -221,14 +223,13 @@ navs_container_summary {
   font-size: 2rem;
 }
 
-.profile_header{
+.profile_header {
   text-align: center;
 }
-.profile_header h4{
+.profile_header h4 {
   color: var(--step-color);
-  filter: brightness(80%)
+  filter: brightness(80%);
 }
-
 
 /* Globals */
 .full {
