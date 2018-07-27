@@ -59,7 +59,7 @@ const PreStepOne = props => (
         id="celular"
         label="Celular"
         placeholder="¿ Como es tu número ?"
-        helpText="Indique su número de celular con código de area (11) 2222-1111"
+        helpText="Indique su número de celular con código de area 11-2222-1111"
         required={true}
         pattern={cel_pattern}
         value={props.lead.celular}
