@@ -195,14 +195,17 @@ navs_container_summary {
 }
 
 #calculator {
+  display: none;
+  overflow-y: scroll;
+  height: 90%;
   position: fixed;
   top: 5%;
   left: 0%;
   margin: 0px;
-  /* left: 15%; */
   width: 100%;
   z-index: 9999;
 }
+
 @media (min-width: 800px) {
   #calculator {
     left: 20%;
@@ -249,6 +252,26 @@ navs_container_summary {
 
 #dots {
   font-size: 4rem;
+}
+
+.talle_table {
+  width: 100%;
+  text-align: center;
+  border: 0.5rem solid var(--btn-color);
+}
+.talle_table tr {
+  border: 0.2rem solid var(--btn-color);
+}
+@media (max-width: 800px) {
+  .calculator_column > table {
+    display: none;
+  }
+}
+
+@media (min-width: 800px) {
+  .calculator_row > table {
+    display: none;
+  }
 }
 
 /* Globals */

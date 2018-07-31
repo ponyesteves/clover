@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-const row_id = window.row_id
+import { Medida, TalleTable } from './components/misc'
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -18,20 +18,25 @@ class Calculator extends React.Component {
   componentDidMount() {
     this.activateTalles()
     document.addEventListener('keydown', ev => {
+      if ([27,13].includes(ev.keyCode)) document.getElementById('calculator').style.display = 'none'
       if (ev.keyCode == 27) return this.setState(() => ({ css: 'none' }))
       if (ev.keyCode == 13) return this.calculateTalle()
+
     })
   }
 
   handleFocus(ev) {
     console.log(`user_student_${ev.target.dataset['idx']}_alias`)
-    this.setState(() => ({
-      id: ev.target.id,
-      css: 'block',
-      alias: document.getElementById(
-        `user_students_${ev.target.dataset['idx']}_alias`
-      ).value
-    }))
+    this.setState(() => {
+      document.getElementById('calculator').style.display = 'block'
+      return {
+        id: ev.target.id,
+        css: 'block',
+        alias: document.getElementById(
+          `user_students_${ev.target.dataset['idx']}_alias`
+        ).value
+      }
+    })
   }
 
   updateStateOf(key, ev) {
@@ -45,16 +50,18 @@ class Calculator extends React.Component {
     this.setState(prevState => {
       const { largo, sisa } = prevState
       const talle = (() => {
-        if ( largo <= 57 && sisa <= 46 ) return 1
-        if ( largo <= 59 && sisa <= 49 ) return 2
-        if ( largo <= 60 && sisa <= 52 ) return 3
-        if ( largo <= 66 && sisa <= 54 ) return 4
-        if ( largo <= 66 && sisa <= 57 ) return 5
-        if ( largo <= 68 && sisa <= 60 ) return 6
-        return 1
+        if (largo <= 55 && sisa <= 46) return 1
+        if (largo <= 57 && sisa <= 49) return 2
+        if (largo <= 60 && sisa <= 52) return 3
+        if (largo <= 64 && sisa <= 55) return 4
+        if (largo <= 66 && sisa <= 57) return 5
+        if (largo <= 70 && sisa <= 60) return 6
+        return 7
       })()
 
       document.getElementById(prevState.id).value = talle
+      document.getElementById('calculator').style.display = 'none'
+
       return { talle, css: 'none' }
     })
   }
@@ -79,43 +86,26 @@ class Calculator extends React.Component {
         </div>
         <div className="calculator_row">
           <div className="calculator_column">
-
-            <div className="form-group">
-              <label>Largo</label>
-              <input
-                type="number"
-                val={this.state.sisa}
-                onChange={this.updateStateOf.bind(this, 'largo')}
-                className="form-control"
-                aria-describedby="largoHelp"
-                placeholder="centimetros"
-              />
-              <small id="largoHelp" className="form-text text-muted">
-                <p>
-                  Largo de torso: Linea A
-                </p>
-              </small>
-            </div>
-            <div className="form-group">
-              <label>Sisa</label>
-              <input
-                type="number"
-                val={this.state.sisa}
-                onChange={this.updateStateOf.bind(this, 'sisa')}
-                className="form-control"
-                aria-describedby="sisaHelp"
-                placeholder="centimetros"
-              />
-              <small id="sisaHelp" className="form-text text-muted">
-                <p>
-                  Largo de sisa: Linea B <br/>
-                </p>
-              </small>
-            </div>
+            <Medida
+              title="Sisa"
+              medida={this.state.sisa}
+              handleChange={this.updateStateOf.bind(this, 'sisa')}
+              helpText="Ancho de Sisa: A"
+            />
+            <Medida
+              title="Largo"
+              medida={this.state.largo}
+              handleChange={this.updateStateOf.bind(this, 'largo')}
+              helpText="Largo de torso: B"
+            />
+            <TalleTable />
           </div>
           <div className="calculator_column">
-              <img src="../../images/medidas.png" />
+            <img src="../../images/medidas.png" />
           </div>
+        </div>
+        <div className="calculator_row">
+          <TalleTable />
         </div>
         <div className="calculator_row">
           <a

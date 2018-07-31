@@ -30,10 +30,7 @@ export const SummaryItem = props => (
 )
 
 export const Btn = props => (
-  <a
-    className={"btn btn-success " + props.type}
-    onClick={props.handleClick}
-  >
+  <a className={'btn btn-success ' + props.type} onClick={props.handleClick}>
     {props.title}
   </a>
 )
@@ -43,7 +40,6 @@ export const BigOK = () => (
     {/* <img src="../images/check.png" /> */}
     <img src="../../images/check_white.png" />
     {/* <img src="../../images/wait2.gif" /> */}
-
   </div>
 )
 
@@ -52,6 +48,51 @@ export const BigWait = () => (
     {/* <img src="../images/check.png" /> */}
     {/* <img src="../../images/check_white.png" /> */}
     <img src="../../images/wait2.gif" />
+  </div>
+)
 
+export const TalleTable = () => (
+  <table className="talle_table">
+    <thead>
+      <tr>
+        <th />
+        <th>Ancho Sisa</th>
+        <th>Largo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['T1', 46, 52],
+        ['T2', 49, 57],
+        ['T3', 52, 60],
+        ['T4', 55, 64],
+        ['T5', 57, 66],
+        ['T6', 60, 70],
+        ['T7', 65, 71]
+      ].map((medida, idx) => (
+        <tr key={idx}>
+          <td>{medida[0]}</td>
+          <td>{medida[1]}</td>
+          <td>{medida[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)
+
+export const Medida = (props) => (
+  <div className="form-group">
+    <label>{props.title}</label>
+    <input
+      type="number"
+      val={props.medida}
+      onChange={props.handleChange}
+      className="form-control"
+      aria-describedby="largoHelp"
+      placeholder="centimetros"
+    />
+    <small id="largoHelp" className="form-text text-muted">
+      <p>{props.helpText}</p>
+    </small>
   </div>
 )
