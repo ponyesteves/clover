@@ -40,7 +40,7 @@ const PreStepOne = props => (
         placeholder="Cantidad de Alumnos"
         type="number"
         required={true}
-        min="15"
+        min="1"
         max="150"
         helpText="A partir de 15 unidades"
         value={props.lead.cantidad}

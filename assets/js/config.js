@@ -30,7 +30,7 @@ export const colores = {
 }
 
 export const bordados = {
-  hasta_tres: 0,
+  hasta_cuatro: 0,
   hasta_seis: 80
 }
 
@@ -41,5 +41,5 @@ export const init_options = {
   chomba_remera_nada: 'no',
   colores: 'uno',
   capucha: 'lisa',
-  bordados: 'hasta_tres'
+  bordados: 'hasta_cuatro'
 }

@@ -7,7 +7,7 @@ const PreStepFive = props => (
   <div>
     <StepTitle>¿ Cuantos Bordados ?</StepTitle>
     <RadioOptionRow
-      options={['hasta_tres', 'hasta_seis']}
+      options={['hasta_cuatro', 'hasta_seis']}
       group_name="bordados"
     />
   </div>
