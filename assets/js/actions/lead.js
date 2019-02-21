@@ -19,7 +19,14 @@ export const sumbitLead = () => (dispatch, getState) => {
     type: PEDIDO.CALCULAR_PRECIO,
     changes: { lead }
   })
+
   // return true
+  if(mix_environment == "dev"){
+    return dispatch({
+      type: LEAD.CREATE,
+      member: { ...lead, id: "fake_id" }
+    })
+  }
 
   postLead(lead)
     .then(resp => resp.json())
