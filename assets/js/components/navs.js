@@ -66,9 +66,10 @@ const PreNavs = props => {
   return (
     <div>
       {nav}
-      <div style={{ marginTop: '1rem' }}>
-
-          Para ver más fotos, visita nuestro  <a href="https://www.facebook.com/CloverEgresados" target="_blank"> Facebook </a> y nuestro  <a href="https://www.instagram.com/clover.egresados/" target="_blank"> Instragram </a>
+      <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
+        <a href="https://www.instagram.com/weclover.egresados/" target="_blank">
+          <img src="../../images/instagram.png" />
+        </a>
       </div>
     </div>
   )
