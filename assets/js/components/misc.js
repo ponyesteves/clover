@@ -32,6 +32,7 @@ export const SummaryItem = props => (
 export const Btn = props => (
   <a className={'btn btn-success ' + props.type} onClick={props.handleClick}>
     {props.title}
+    {props.children}
   </a>
 )
 

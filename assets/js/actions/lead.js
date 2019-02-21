@@ -43,10 +43,12 @@ export const convertLead = fase => (dispatch, getState) => {
   const lead = getState().lead,
     pedido = getState().pedido
 
-  window.open(
-    'https://api.whatsapp.com/send?phone=5491125110601&text=Hola!%20Quiero%20informaci%C3%B3n%20y%20presupuestos%20para%20hacer%20mi%20buzo%20de%20egresados!%20',
-    '_blank'
-  )
+  if (fase == 'Negociación') {
+    window.open(
+      'https://api.whatsapp.com/send?phone=5491125110601&text=Hola!%20Quiero%20informaci%C3%B3n%20y%20presupuestos%20para%20hacer%20mi%20buzo%20de%20egresados!%20',
+      '_blank'
+    )
+  }
 
   dispatch({
     type: STEP.NEXT
@@ -72,11 +74,17 @@ export const convertLead = fase => (dispatch, getState) => {
             `Compra de ${lead.cantidad} unidades`,
             pedido.precio_total * 0.85
           )
-        case 'Seña':
+        case 'tres':
           return go_and_pay(
-            `Colegio: ${lead.colegio}, pago seña 10%`,
+            `Colegio: ${lead.colegio}, pago 1/3 Cuotas`,
             `Compra de ${lead.cantidad} unidades`,
-            pedido.precio_total * 0.1
+            pedido.precio_total / 3
+          )
+        case 'seis':
+          return go_and_pay(
+            `Colegio: ${lead.colegio}, pago 1/6 Cuotas`,
+            `Compra de ${lead.cantidad} unidades`,
+            pedido.precio_total / 6
           )
       }
     })
