@@ -24,24 +24,17 @@ const PreNavs = props => {
           <div className="navs_container_summary">
             <Btn
               type="full"
-              handleClick={e => props.convertLead('Cerrado ganado')}
-              title="Pagar con Mercado Pago (15% Descuento)"
-            />
-            <Btn
-              type="full"
               handleClick={e => props.convertLead('Seña')}
-              title="Señar con Mercado Pago"
+              title="Señar con Mercado Pago (Primer Cuota)"
             />
             <Btn
               type="full"
               handleClick={e => props.convertLead('Negociación')}
-              title="Solicitar Atencion Comercial"
+              title="Contactanos por WhatsApp"
             />
-            <Btn
-              type="full"
-              handleClick={props.handlePrevStep}
-              title="Anterior"
-            />
+            <a href="#" onClick={props.handlePrevStep}>
+              <h4>    quiero modificar algo...</h4>
+            </a>
           </div>
         )
       case 'thanks':

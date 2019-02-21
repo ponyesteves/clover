@@ -21,10 +21,10 @@ export const sumbitLead = () => (dispatch, getState) => {
   })
 
   // return true
-  if(mix_environment == "dev"){
+  if (mix_environment == 'dev') {
     return dispatch({
       type: LEAD.CREATE,
-      member: { ...lead, id: "fake_id" }
+      member: { ...lead, id: 'fake_id' }
     })
   }
 
@@ -43,6 +43,11 @@ export const convertLead = fase => (dispatch, getState) => {
   const lead = getState().lead,
     pedido = getState().pedido
 
+  window.open(
+    'https://api.whatsapp.com/send?phone=5491125110601&text=Hola!%20Quiero%20informaci%C3%B3n%20y%20presupuestos%20para%20hacer%20mi%20buzo%20de%20egresados!%20',
+    '_blank'
+  )
+
   dispatch({
     type: STEP.NEXT
   })
@@ -53,18 +58,29 @@ export const convertLead = fase => (dispatch, getState) => {
   })
 
   dispatch(push(getState().step))
-  fetch('/api/convert_lead', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ lead, pedido: { ...pedido, fase } })
-  }).then(resp => {
-    switch (fase) {
-      case 'Cerrado ganado':
-        return go_and_pay(`Colegio: ${lead.colegio}, pago 100%`, `Compra de ${lead.cantidad} unidades`, pedido.precio_total * 0.85)
-      case 'Seña':
-        return go_and_pay(`Colegio: ${lead.colegio}, pago seña 10%`, `Compra de ${lead.cantidad} unidades`, pedido.precio_total * 0.1)
-    }
-  })
+
+  if (mix_environment == 'dev') {
+    fetch('/api/convert_lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lead, pedido: { ...pedido, fase } })
+    }).then(resp => {
+      switch (fase) {
+        case 'Cerrado ganado':
+          return go_and_pay(
+            `Colegio: ${lead.colegio}, pago 100%`,
+            `Compra de ${lead.cantidad} unidades`,
+            pedido.precio_total * 0.85
+          )
+        case 'Seña':
+          return go_and_pay(
+            `Colegio: ${lead.colegio}, pago seña 10%`,
+            `Compra de ${lead.cantidad} unidades`,
+            pedido.precio_total * 0.1
+          )
+      }
+    })
+  }
 }
 
 const postLead = member => {
