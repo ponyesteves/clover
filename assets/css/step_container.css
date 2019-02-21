@@ -8,7 +8,8 @@
   --pedido-item-color: #f2dede;
   --pedido-item-padding: 1rem;
   --radius: 0.5rem;
-  --text-sixe: 0.9rem;
+  --text-size: 0.9rem;
+  --pedido-text-size: 1.2rem;
 }
 
 body {
@@ -108,8 +109,8 @@ navs_container_summary {
 }
 
 .pedido_item {
-  font-size: var(--text-size);
-  width: 33.32%;
+  font-size: var(--pedido-text-size);
+  width: 100%;
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
