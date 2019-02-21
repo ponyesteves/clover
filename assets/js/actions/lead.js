@@ -61,7 +61,7 @@ export const convertLead = fase => (dispatch, getState) => {
 
   dispatch(push(getState().step))
 
-  if (mix_environment == 'dev') {
+  if (mix_environment != 'dev') {
     fetch('/api/convert_lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
