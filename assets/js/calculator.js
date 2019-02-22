@@ -90,13 +90,13 @@ class Calculator extends React.Component {
               title="Sisa"
               medida={this.state.sisa}
               handleChange={this.updateStateOf.bind(this, 'sisa')}
-              helpText="Ancho de Sisa: A"
+              helpText="Ancho de Sisa: (1)"
             />
             <Medida
               title="Largo"
               medida={this.state.largo}
               handleChange={this.updateStateOf.bind(this, 'largo')}
-              helpText="Largo de torso: B"
+              helpText="Largo de torso: (2)"
             />
             <TalleTable />
           </div>
