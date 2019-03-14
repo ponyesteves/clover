@@ -20,6 +20,7 @@ defmodule Clover.Accounts do
   def list_users do
     User
     |> where([u], is_nil(u.deleted_at))
+    |> where([u], u.username != "weclover")
     |> Repo.all()
   end
 
