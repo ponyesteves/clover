@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ceibo-legacy-db
+  labels:
+    app: ceibo-legacy-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ceibo-legacy-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ceibo-legacy-db
+    spec:
+      containers:
+      - name: ceibo-legacy-postres-10-image
+        image: postgres:10
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: my-do-volume
+          subPath: db/data
+      restartPolicy: Always
+      volumes:
+        - name: my-do-volume
+          persistentVolumeClaim:
+            claimName: ceibo-multiuse-pv
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ceibo-legacy-db
+  labels:
+    app: ceibo-legacy-db
+spec:
+  ports:
+  - name: "5432"
+    port: 5432
+    targetPort: 5432
+  selector:
+    app: ceibo-legacy-db
+---
